@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class findLocation : MonoBehaviour {
+public class GenerateFood : MonoBehaviour {
     public GameObject locationSet;
     public GameObject foodSet;
-	void Start () {
-        
+
+    // Use this for initialization
+    void Start () {
         Transform[] locationList = locationSet.GetComponentsInChildren<Transform>();
         Transform[] foodList = foodSet.GetComponentsInChildren<Transform>();
         int locationNum = locationList.Length;
@@ -22,13 +23,11 @@ public class findLocation : MonoBehaviour {
             }
 
             int randomNum = Random.Range(1, foodNum);
-            Transform temp = Instantiate(foodList[randomNum].transform, t.position, Quaternion.identity);
-            Food food = temp.GetComponent<Food>();
-            //food.DestroyGameObjectDelay(3);
+            var temp = Instantiate(foodList[randomNum].transform, t.position, Quaternion.identity);
 
+            Destroy(temp, 5);
 
         }
-        
-	}
+    }
 	
 }
