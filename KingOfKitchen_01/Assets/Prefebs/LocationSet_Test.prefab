@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4653801074908048}
   m_Layer: 0
-  m_Name: Location Set
+  m_Name: LocationSet_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

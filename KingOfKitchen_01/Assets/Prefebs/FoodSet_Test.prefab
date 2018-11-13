@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4263838612014172}
   - component: {fileID: 114443873643668684}
   m_Layer: 0
-  m_Name: Food Set
+  m_Name: FoodSet_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
