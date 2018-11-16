@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33449824910964354}
   - component: {fileID: 23312023146636408}
   - component: {fileID: 65291275986160104}
+  - component: {fileID: 114770459528272396}
   m_Layer: 0
   m_Name: Food2
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,9 +41,10 @@ GameObject:
   - component: {fileID: 33886835512555922}
   - component: {fileID: 23723984113166706}
   - component: {fileID: 65112678009025466}
+  - component: {fileID: 114771316519399182}
   m_Layer: 0
   m_Name: Food3
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,9 +60,10 @@ GameObject:
   - component: {fileID: 33253143153203666}
   - component: {fileID: 23394160406286694}
   - component: {fileID: 65727236650800954}
+  - component: {fileID: 114008331213905364}
   m_Layer: 0
   m_Name: Food1
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +76,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263838612014172}
-  - component: {fileID: 114443873643668684}
   m_Layer: 0
   m_Name: FoodSet_Test
   m_TagString: Untagged
@@ -298,16 +300,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114443873643668684
+--- !u!114 &114008331213905364
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477902070859876}
+  m_GameObject: {fileID: 1437672559527166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebff8c8938950d248994c3231898952d, type: 3}
+  m_Script: {fileID: 11500000, guid: cf1f61e90c381c84bb81c8e2f98f8fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationSet: {fileID: 0}
-  foodSet: {fileID: 1477902070859876}
+  score: 10
+--- !u!114 &114770459528272396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040035721919968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1f61e90c381c84bb81c8e2f98f8fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 200
+--- !u!114 &114771316519399182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129572642159690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1f61e90c381c84bb81c8e2f98f8fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 1000
