@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23312023146636408}
   - component: {fileID: 65291275986160104}
   - component: {fileID: 114770459528272396}
+  - component: {fileID: 54959582003350830}
   m_Layer: 0
   m_Name: Food2
   m_TagString: Food
@@ -42,6 +43,7 @@ GameObject:
   - component: {fileID: 23723984113166706}
   - component: {fileID: 65112678009025466}
   - component: {fileID: 114771316519399182}
+  - component: {fileID: 54772587341153120}
   m_Layer: 0
   m_Name: Food3
   m_TagString: Food
@@ -61,6 +63,7 @@ GameObject:
   - component: {fileID: 23394160406286694}
   - component: {fileID: 65727236650800954}
   - component: {fileID: 114008331213905364}
+  - component: {fileID: 54690059035225492}
   m_Layer: 0
   m_Name: Food1
   m_TagString: Food
@@ -90,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477902070859876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2467546, y: 1.2554107, z: -1.1547487}
+  m_LocalPosition: {x: 2.71, y: 1.08, z: 2.1015682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4946879204083390}
@@ -264,6 +267,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129572642159690}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54690059035225492
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437672559527166}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54772587341153120
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129572642159690}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54959582003350830
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040035721919968}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65112678009025466
 BoxCollider:
   m_ObjectHideFlags: 1

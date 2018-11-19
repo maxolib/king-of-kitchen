@@ -4,16 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-    public GameObject camera_Obj;
-    public Text score_Text;
-    public Text distance_Text;
-    public Text movable_Text;
+    public GameObject camera_Obj;   // the camera object
+    public GameObject hand_Obj;     // the object for testing 
+    public Transform hold_Obj;      // keep the holded object 
+    public Text score_Text;         // score text in UI
+    public Text distance_Text;      // distance text in UI
+    public Text movable_Text;       // movable text in UI
+    public Text hold_Text;          // hold text in UI
+    public Rigidbody rb;            // Rigidbody of Player
+    public int mode;                // ## The game has 2 modes to switch 2 Techniques ##
+                                    // mode 1: Ray-Casting
+                                    // mode 2: Homer
 
-    int score;
-    int count;
-    float movable_limit;
-    float collect_limit;
+    int score;                      // current score of this player
+    int count;                      // number of current frame
+    float movable_limit;            // limit distance for moving 
+    float collect_limit;            // limit distance for collecting food
     bool movable;
+    bool hold;
     Color green_Color;
     Color red_Color;
 
@@ -21,17 +29,29 @@ public class Player : MonoBehaviour {
 
     void Start()
     {
+        // initial variable
         score = 0;
         count = 0;
         movable_limit = 10f;
         maxRange = 100f;
         movable = false;
+        hold = false;
         green_Color = new Color(0, 255, 0);
         red_Color = new Color(255, 0, 0);
+        rb = transform.GetComponent<Rigidbody>();
+
+        //Cursor.visible = false;
     }
 
     void Update () {
-        Pointing();
+        if (hold)
+        {
+            Holding();
+        }
+        else
+        {
+            Pointing();
+        }
         count++;
     }
 
@@ -51,11 +71,16 @@ public class Player : MonoBehaviour {
                 if (hit_t.tag == "Food")
                 {
                     Food obj = hit_t.gameObject.GetComponent<Food>();
+
                     if (Input.GetMouseButtonDown(0))
                     {
                         AddScore(obj.score);
-                        obj.DestroyGameObject();
+                        hold_Obj = hit.transform.GetComponent<Transform>();
+                        SetHoldObject(hold_Obj);
+                        hold = true;
                     }
+                    print(count + ": " + hold);
+                    UpdateHold(hold);
                     UpdateScore();
                 }
 
@@ -66,8 +91,10 @@ public class Player : MonoBehaviour {
                         movable = true;
                         if (Input.GetMouseButtonDown(0))
                         {
-                            print("click: " + count);
+                            rb.AddForce(camera_Obj.transform.forward * (400f + hit.distance * 50));
+                            rb.useGravity = true;
                         }
+
                     }
                     else
                     {
@@ -81,6 +108,32 @@ public class Player : MonoBehaviour {
         {
             UpdateDistance("-");
         }
+    }
+
+    void Holding()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            hold = false;
+            ResetHoldObject();
+        }
+        UpdateHold(hold);
+    }
+
+    void SetHoldObject(Transform obj)
+    {
+        obj.parent = hand_Obj.transform;
+        //obj.transform.localPosition = Vector3.zero;
+        obj.transform.localRotation = Quaternion.identity;
+        obj.transform.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    void ResetHoldObject()
+    {
+        hold_Obj.parent = null;
+        hold_Obj.GetComponent<Rigidbody>().isKinematic = false;
+        hold_Obj.GetComponent<Rigidbody>().useGravity = true;
+
     }
 
     void AddScore(int scoreFood)
@@ -116,6 +169,20 @@ public class Player : MonoBehaviour {
         {
             movable_Text.text = "False";
             movable_Text.color = red_Color;
+        }
+    }
+
+    void UpdateHold(bool hold)
+    {
+        if (hold)
+        {
+            hold_Text.text = "True";
+            hold_Text.color = green_Color;
+        }
+        else
+        {
+            hold_Text.text = "False";
+            hold_Text.color = red_Color;
         }
     }
 
