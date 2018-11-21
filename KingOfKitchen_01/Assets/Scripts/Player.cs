@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
+    public GameObject SetupScene;
+    GameInfo gameInfo;
+
+
     public GameObject camera_Obj;   // the camera object
     public GameObject hand_Obj;     // the object for testing 
     public Transform hold_Obj;      // keep the holded object 
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour {
     void Start()
     {
         // initial variable
+        gameInfo = SetupScene.transform.GetComponent<GameInfo>();
         score = 0;
         count = 0;
         movable_limit = 10f;
@@ -76,11 +81,11 @@ public class Player : MonoBehaviour {
                     if (Input.GetMouseButtonDown(0))
                     {
                         hold_Obj = hit_t;
-                        AddScore(obj.score);
                         SetHoldObject(hit_t);
                         hold = true;
+                        obj.held = true;
                     }
-                    print(count + ": " + hold);
+                    //print(count + ": " + hold);
                     UpdateHold(hold);
                     UpdateScore();
                 }

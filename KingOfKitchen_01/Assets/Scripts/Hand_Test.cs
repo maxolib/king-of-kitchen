@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hand_Test : MonoBehaviour {
+    public GameObject SetupScene;
+    GameInfo gameInfo;
+
     public GameObject hand_Obj;
     public GameObject camera_Obj;
-    public Rigidbody rb_Camera;            // Rigidbody of Player
+    public Rigidbody rb_Camera;
 
     public bool hold;
     public bool movable;
@@ -16,6 +19,7 @@ public class Hand_Test : MonoBehaviour {
     float movable_limit;
 
     void Start () {
+        gameInfo = SetupScene.transform.GetComponent<GameInfo>();
         maxRange = 100f;
         movable_limit = 10f;
         hold = false;
