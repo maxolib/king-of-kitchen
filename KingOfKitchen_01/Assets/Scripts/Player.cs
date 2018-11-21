@@ -12,9 +12,10 @@ public class Player : MonoBehaviour {
     public Text movable_Text;       // movable text in UI
     public Text hold_Text;          // hold text in UI
     public Rigidbody rb;            // Rigidbody of Player
+    public string[] mode_Name = {"Ray-Casting", "Homer"};
     public int mode;                // ## The game has 2 modes to switch 2 Techniques ##
-                                    // mode 1: Ray-Casting
-                                    // mode 2: Homer
+                                    // mode 0: Ray-Casting
+                                    // mode 1: Homer
 
     int score;                      // current score of this player
     int count;                      // number of current frame
@@ -39,7 +40,7 @@ public class Player : MonoBehaviour {
         green_Color = new Color(0, 255, 0);
         red_Color = new Color(255, 0, 0);
         rb = transform.GetComponent<Rigidbody>();
-
+        mode = 0;
         //Cursor.visible = false;
     }
 
@@ -74,9 +75,9 @@ public class Player : MonoBehaviour {
 
                     if (Input.GetMouseButtonDown(0))
                     {
+                        hold_Obj = hit_t;
                         AddScore(obj.score);
-                        hold_Obj = hit.transform.GetComponent<Transform>();
-                        SetHoldObject(hold_Obj);
+                        SetHoldObject(hit_t);
                         hold = true;
                     }
                     print(count + ": " + hold);
@@ -122,7 +123,7 @@ public class Player : MonoBehaviour {
 
     void SetHoldObject(Transform obj)
     {
-        obj.parent = hand_Obj.transform;
+        obj.transform.position = hand_Obj.transform.position;
         //obj.transform.localPosition = Vector3.zero;
         obj.transform.localRotation = Quaternion.identity;
         obj.transform.GetComponent<Rigidbody>().isKinematic = true;
@@ -130,9 +131,11 @@ public class Player : MonoBehaviour {
 
     void ResetHoldObject()
     {
-        hold_Obj.parent = null;
+        //hold_Obj.parent = null;
         hold_Obj.GetComponent<Rigidbody>().isKinematic = false;
         hold_Obj.GetComponent<Rigidbody>().useGravity = true;
+
+        hold_Obj = null;
 
     }
 
@@ -185,5 +188,4 @@ public class Player : MonoBehaviour {
             hold_Text.color = red_Color;
         }
     }
-
 }
