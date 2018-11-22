@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR;
 
 public class GameInfo : MonoBehaviour {
     public Text score_Text;
     public int currentScore;
+    public string[] handType = {"Any", "Left", "Right"};
 
     void Start()
     {
@@ -21,6 +23,46 @@ public class GameInfo : MonoBehaviour {
     public void UpdateScore()
     {
         score_Text.text = currentScore.ToString();
+    }
+
+    public bool GetGrabDown(int handType)
+    {
+        if (handType == 0)
+        {
+            return SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.Any);
+        }
+        else if (handType == 1)
+        {
+            return SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.LeftHand);
+        }
+        else if (handType == 2)
+        {
+            return SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool GetGrabUp(int handType)
+    {
+        if (handType == 0)
+        {
+            return SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.Any);
+        }
+        else if (handType == 1)
+        {
+            return SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.LeftHand);
+        }
+        else if (handType == 2)
+        {
+            return SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.RightHand);
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

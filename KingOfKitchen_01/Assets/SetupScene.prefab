@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4567206194450270}
   - component: {fileID: 114883566136320228}
   - component: {fileID: 114242831437542428}
+  - component: {fileID: 114202684878786220}
   m_Layer: 0
   m_Name: SetupScene
   m_TagString: Untagged
@@ -41,6 +42,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114202684878786220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639427767238938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e55d9deb837cf14d97ed86a84cd6a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score_Text: {fileID: 0}
+  currentScore: 0
 --- !u!114 &114242831437542428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,3 +81,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  held: 0

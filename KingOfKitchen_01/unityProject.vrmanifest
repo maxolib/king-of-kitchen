@@ -1,0 +1,15 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.kingofkitchen_01.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "strings": {
+        "en_us": {
+          "name": "KingOfKitchen_01 [Testing]"
+        }
+      }
+    }
+  ]
+}

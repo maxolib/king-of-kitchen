@@ -12,23 +12,14 @@ public class Bag : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        print("Hit!!!sasdasds");
         if (col.transform.tag == "Food")
         {
             Food food = col.transform.GetComponent<Food>();
-            if (food.held)
+            if (food.selected)
             {
                 gameInfo.AddScore(food.score);
                 food.DestroyGameObject();
             }
-            else
-            {
-                print("sd");
-            }
-        }
-        else
-        {
-            print("Nooo");
         }
     }
 }

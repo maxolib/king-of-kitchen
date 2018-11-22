@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class Hand_Test : MonoBehaviour {
+    
+
     public GameObject SetupScene;
     GameInfo gameInfo;
 
@@ -13,7 +16,8 @@ public class Hand_Test : MonoBehaviour {
     public bool hold;
     public bool movable;
     public Food food;
-    public GameObject hold_Obj;
+    public Transform hold_T;
+    public int handType;
 
     float maxRange;
     float movable_limit;
@@ -29,7 +33,7 @@ public class Hand_Test : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (hold)
+        if (hold && hold_T != null)
         {
             Holding();
         }
@@ -41,43 +45,41 @@ public class Hand_Test : MonoBehaviour {
 
     void Holding()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (gameInfo.GetGrabUp(handType))
         {
-            hold = false;
+            ResetObjectHold();
         }
     }
 
     void Pointing()
     {
-        Pointing();
+        hold = false;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange))
         {
             if (hit.transform != null)
             {
-                Transform hit_t = hit.transform.GetComponent<Transform>();
-
-                if (hit_t.tag == "Food")
+                if (hit.transform.tag == "Food")
                 {
-                    food = hit_t.gameObject.GetComponent<Food>();
-
                     // click the button
-                    if (Input.GetMouseButtonDown(0))
+                    if (gameInfo.GetGrabDown(handType))
                     {
+                        print(gameInfo.handType[handType]);
+                        hold_T = hit.transform.GetComponent<Transform>();
                         SetObjectHold();
                     }
                 }
 
-                if (hit_t.tag == "Movable")
+                if (hit.transform.tag == "Movable")
                 {
                     if (hit.distance <= movable_limit)
                     {
                         movable = true;
                         // click the button
-                        if (Input.GetMouseButtonDown(0))
+                        if (gameInfo.GetGrabDown(handType))
                         {
                             // add force to move
-                            rb_Camera.AddForce(camera_Obj.transform.forward * (400f + hit.distance * 50));
+                            rb_Camera.AddForce(transform.forward * (400f + hit.distance * 50));
                             movable = true;
                         }
                         else
@@ -93,12 +95,27 @@ public class Hand_Test : MonoBehaviour {
 
     void SetObjectHold()
     {
+        food = hold_T.transform.GetComponent<Food>();
         food.held = true;
+        food.selected = true;
+        hold = true;
+        hold_T.position = transform.position;
+        hold_T.parent = transform;
+        hold_T.localRotation = Quaternion.identity;
+        hold_T.GetComponent<Rigidbody>().isKinematic = true;
+        
     }
 
     void ResetObjectHold()
     {
         food.held = false;
+        hold_T.GetComponent<Rigidbody>().isKinematic = false;
+        hold_T.GetComponent<Rigidbody>().useGravity = true;
+        hold_T.parent = null;
+        food = null;
+        hold_T = null;
+        hold = false;
+
     }
 
 

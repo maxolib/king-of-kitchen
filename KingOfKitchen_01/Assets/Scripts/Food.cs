@@ -6,10 +6,12 @@ public class Food : MonoBehaviour {
     //Setup Food
     public int score;
     public bool held;
+    public bool selected;
     
     void Start()
     {
         held = false;
+        selected = false;
     }
     
     public void DestroyGameObject()
