@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     public GameObject SetupScene;
     GameInfo gameInfo;
 
-
+    LineRenderer laser;
     public GameObject camera_Obj;   // the camera object
     public GameObject hand_Obj;     // the object for testing
     public GameObject hit_Obj;
@@ -52,6 +52,10 @@ public class Player : MonoBehaviour {
         hit_Obj.transform.parent = hand_Obj.transform;
         hit_Obj.transform.position = hand_Obj.transform.position;
         hit_Obj.transform.localRotation = Quaternion.identity;
+
+
+        laser = gameObject.AddComponent<LineRenderer>();
+
     }
 
     void Update () {
@@ -203,6 +207,7 @@ public class Player : MonoBehaviour {
     
     void UpdateHitObject(Vector3 position, Vector3 normal)
     {
+        laser.SetPosition(0, position);
         hit_Obj.transform.position = position;
         hit_Obj.transform.localRotation = Quaternion.LookRotation(normal);
     }
