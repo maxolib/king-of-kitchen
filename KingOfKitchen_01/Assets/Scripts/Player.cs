@@ -9,7 +9,8 @@ public class Player : MonoBehaviour {
 
 
     public GameObject camera_Obj;   // the camera object
-    public GameObject hand_Obj;     // the object for testing 
+    public GameObject hand_Obj;     // the object for testing
+    public GameObject hit_Obj;
     public Transform hold_Obj;      // keep the holded object 
     public Text score_Text;         // score text in UI
     public Text distance_Text;      // distance text in UI
@@ -47,9 +48,14 @@ public class Player : MonoBehaviour {
         rb = transform.GetComponent<Rigidbody>();
         mode = 0;
         //Cursor.visible = false;
+        hit_Obj = Instantiate(gameInfo.hit_Obj);
+        hit_Obj.transform.parent = hand_Obj.transform;
+        hit_Obj.transform.position = hand_Obj.transform.position;
+        hit_Obj.transform.localRotation = Quaternion.identity;
     }
 
     void Update () {
+
         if (hold)
         {
             Holding();
@@ -67,6 +73,7 @@ public class Player : MonoBehaviour {
         UpdateMovable(movable);
         if (Physics.Raycast(camera_Obj.transform.position, camera_Obj.transform.forward, out hit, maxRange))
         {
+            UpdateHitObject(hit.point, hit.normal);
             if (hit.transform != null)
             {
                 // hit.transform is the GameObject that RayCasting hit
@@ -192,5 +199,11 @@ public class Player : MonoBehaviour {
             hold_Text.text = "False";
             hold_Text.color = red_Color;
         }
+    }
+    
+    void UpdateHitObject(Vector3 position, Vector3 normal)
+    {
+        hit_Obj.transform.position = position;
+        hit_Obj.transform.localRotation = Quaternion.LookRotation(normal);
     }
 }

@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hand : MonoBehaviour {
-    
-	
+    public GameObject SetupScene;
+    GameInfo gameInfo;
+	void Start()
+    {
+        gameInfo = SetupScene.transform.GetComponent<GameInfo>();
+    }
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown("a"))

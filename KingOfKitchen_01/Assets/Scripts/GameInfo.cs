@@ -7,6 +7,9 @@ using Valve.VR;
 public class GameInfo : MonoBehaviour {
     public Text score_Text;
     public int currentScore;
+
+    public GameObject hit_Obj;
+
     public string[] handType = {"Any", "Left", "Right"};
 
     void Start()
@@ -64,6 +67,12 @@ public class GameInfo : MonoBehaviour {
             return false;
         }
     }
+
+    public float FindDistance(Vector3 s, Vector3 d)
+    {
+        return Vector3.Distance(s, d);
+    }
+    
 
 
 }
