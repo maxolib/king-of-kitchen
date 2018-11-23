@@ -1,0 +1,914 @@
+fileFormatVersion: 2
+guid: 1cc1f64e6f879bd4f8217597a028a78a
+timeCreated: 1542991928
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: _Extrusion__3303_
+    100002: _Extrusion__3624_
+    100004: _Extrusion__4155_
+    100006: _Extrusion__4410_
+    100008: _Extrusion__5274_
+    100010: _Extrusion__5342_
+    100012: _Extrusion__5638_
+    100014: _Extrusion__5682_
+    100016: _Extrusion__6335_
+    100018: _Extrusion__6630_
+    100020: _Extrusion__6779_
+    100022: _Joined_Solid_Geometry__3655_
+    100024: _Joined_Solid_Geometry__3656_
+    100026: _Joined_Solid_Geometry__3657_
+    100028: _Sweep__3932_
+    100030: _Sweep__5645_
+    100032: Bowl
+    100034: Bowl__Instance.003
+    100036: Bowl__Instance.004
+    100038: Bowl__Instance.005
+    100040: Bowl_set
+    100042: Box009
+    100044: Box011
+    100046: Box012
+    100048: ceiling
+    100050: 'ceiling lamp '
+    100052: ceiling lamp .001
+    100054: chair
+    100056: chair.001
+    100058: chair.002
+    100060: chair.003
+    100062: chair.004
+    100064: chair.005
+    100066: chair_cushion
+    100068: chair_cushion.001
+    100070: chair_cushion.002
+    100072: chair_cushion.003
+    100074: chair_cushion.004
+    100076: chair_cushion.005
+    100078: clock
+    100080: clock hand
+    100082: clock pad
+    100084: clock second hand
+    100086: counter
+    100088: Cube
+    100090: Cup
+    100092: Cylinder001
+    100094: Cylinder002
+    100096: Cylinder003
+    100098: Cylinder004
+    100100: door
+    100102: door handle_1
+    100104: door handle_2
+    100106: door_L.001
+    100108: door_L.002
+    100110: door_R.001
+    100112: door_R.002
+    100114: drainer
+    100116: drawer.001
+    100118: drawer.002
+    100120: drawer.003
+    100122: drawer_big
+    100124: drawer_small
+    100126: floor
+    100128: handle_door.001
+    100130: handle_door.002
+    100132: handle_door.003
+    100134: handle_door.004
+    100136: handle_drawer.001
+    100138: handle_drawer.002
+    100140: handle_drawer.003
+    100142: handle_drawer.004
+    100144: handle_drawer.005
+    100146: handle_oven
+    100148: hood
+    100150: //RootNode
+    100152: Lamp_01
+    100154: Lamp_01.001
+    100156: leg.001
+    100158: leg.002
+    100160: leg.003
+    100162: leg.004
+    100164: Line002
+    100166: Line006
+    100168: Line007
+    100170: Object005
+    100172: oven_door
+    100174: oven_mirror
+    100176: picture
+    100178: Plane002
+    100180: Plane005
+    100182: Plate
+    100184: Plate.001
+    100186: refrigerator
+    100188: sink
+    100190: Spot
+    100192: Spot.001
+    100194: station
+    100196: station.001
+    100198: stove_big.001
+    100200: stove_big.002
+    100202: stove_small.001
+    100204: stove_small.002
+    100206: stove_switch.000
+    100208: stove_switch.001
+    100210: stove_switch.002
+    100212: stove_switch.003
+    100214: table
+    100216: wall_1
+    100218: wall_2
+    100220: wall_3
+    100222: wall_4
+    100224: wall_cabinet
+    100226: wall_cabinet.001
+    100228: wall_cabinet.002
+    100230: wall_cabinet.003
+    100232: wall_cabinet.004
+    100234: window
+    100236: window mirror 1
+    100238: window mirror 2
+    400000: _Extrusion__3303_
+    400002: _Extrusion__3624_
+    400004: _Extrusion__4155_
+    400006: _Extrusion__4410_
+    400008: _Extrusion__5274_
+    400010: _Extrusion__5342_
+    400012: _Extrusion__5638_
+    400014: _Extrusion__5682_
+    400016: _Extrusion__6335_
+    400018: _Extrusion__6630_
+    400020: _Extrusion__6779_
+    400022: _Joined_Solid_Geometry__3655_
+    400024: _Joined_Solid_Geometry__3656_
+    400026: _Joined_Solid_Geometry__3657_
+    400028: _Sweep__3932_
+    400030: _Sweep__5645_
+    400032: Bowl
+    400034: Bowl__Instance.003
+    400036: Bowl__Instance.004
+    400038: Bowl__Instance.005
+    400040: Bowl_set
+    400042: Box009
+    400044: Box011
+    400046: Box012
+    400048: ceiling
+    400050: 'ceiling lamp '
+    400052: ceiling lamp .001
+    400054: chair
+    400056: chair.001
+    400058: chair.002
+    400060: chair.003
+    400062: chair.004
+    400064: chair.005
+    400066: chair_cushion
+    400068: chair_cushion.001
+    400070: chair_cushion.002
+    400072: chair_cushion.003
+    400074: chair_cushion.004
+    400076: chair_cushion.005
+    400078: clock
+    400080: clock hand
+    400082: clock pad
+    400084: clock second hand
+    400086: counter
+    400088: Cube
+    400090: Cup
+    400092: Cylinder001
+    400094: Cylinder002
+    400096: Cylinder003
+    400098: Cylinder004
+    400100: door
+    400102: door handle_1
+    400104: door handle_2
+    400106: door_L.001
+    400108: door_L.002
+    400110: door_R.001
+    400112: door_R.002
+    400114: drainer
+    400116: drawer.001
+    400118: drawer.002
+    400120: drawer.003
+    400122: drawer_big
+    400124: drawer_small
+    400126: floor
+    400128: handle_door.001
+    400130: handle_door.002
+    400132: handle_door.003
+    400134: handle_door.004
+    400136: handle_drawer.001
+    400138: handle_drawer.002
+    400140: handle_drawer.003
+    400142: handle_drawer.004
+    400144: handle_drawer.005
+    400146: handle_oven
+    400148: hood
+    400150: //RootNode
+    400152: Lamp_01
+    400154: Lamp_01.001
+    400156: leg.001
+    400158: leg.002
+    400160: leg.003
+    400162: leg.004
+    400164: Line002
+    400166: Line006
+    400168: Line007
+    400170: Object005
+    400172: oven_door
+    400174: oven_mirror
+    400176: picture
+    400178: Plane002
+    400180: Plane005
+    400182: Plate
+    400184: Plate.001
+    400186: refrigerator
+    400188: sink
+    400190: Spot
+    400192: Spot.001
+    400194: station
+    400196: station.001
+    400198: stove_big.001
+    400200: stove_big.002
+    400202: stove_small.001
+    400204: stove_small.002
+    400206: stove_switch.000
+    400208: stove_switch.001
+    400210: stove_switch.002
+    400212: stove_switch.003
+    400214: table
+    400216: wall_1
+    400218: wall_2
+    400220: wall_3
+    400222: wall_4
+    400224: wall_cabinet
+    400226: wall_cabinet.001
+    400228: wall_cabinet.002
+    400230: wall_cabinet.003
+    400232: wall_cabinet.004
+    400234: window
+    400236: window mirror 1
+    400238: window mirror 2
+    2100000: M_ceiling
+    2100002: M_picture
+    2100004: M_ceiling lamp
+    2100006: M_bowl6
+    2100008: M_bowl2
+    2100010: M_door handle
+    2100012: M_door
+    2100014: M_mirror
+    2100016: M_lamp body
+    2100018: M_lamp
+    2100020: M_stainless
+    2100022: M_window
+    2100024: M_bowl4
+    2100026: M_bowl5
+    2100028: M_bowl3
+    2100030: M_cooker hood
+    2100032: M_chair
+    2100034: M_chair pad
+    2100036: M_table wood surface
+    2100038: M_table leg
+    2100040: M_station2
+    2100042: M_cabinet door
+    2100044: M_cabinet handle
+    2100046: M_refrigerator
+    2100048: M_refrige hand
+    2100050: No Name
+    2100052: M_shelf
+    2100054: M_station
+    2100056: M_stoveSwitch
+    2100058: M_oven mirror
+    2100060: M_oven cover
+    2100062: M_stove pad
+    2100064: M_wall
+    2100066: M_floor
+    2100068: M_bowl1
+    2100070: M_clock_
+    2100072: M_clock pad
+    2100074: M_clock hand
+    2100076: M_clock sec hand
+    2300000: _Extrusion__3303_
+    2300002: _Extrusion__3624_
+    2300004: _Extrusion__4155_
+    2300006: _Extrusion__4410_
+    2300008: _Extrusion__5274_
+    2300010: _Extrusion__5342_
+    2300012: _Extrusion__5638_
+    2300014: _Extrusion__5682_
+    2300016: _Extrusion__6335_
+    2300018: _Extrusion__6630_
+    2300020: _Extrusion__6779_
+    2300022: _Joined_Solid_Geometry__3655_
+    2300024: _Joined_Solid_Geometry__3656_
+    2300026: _Joined_Solid_Geometry__3657_
+    2300028: _Sweep__3932_
+    2300030: _Sweep__5645_
+    2300032: Bowl
+    2300034: Bowl__Instance.003
+    2300036: Bowl__Instance.004
+    2300038: Bowl__Instance.005
+    2300040: Bowl_set
+    2300042: Box009
+    2300044: Box011
+    2300046: Box012
+    2300048: ceiling
+    2300050: 'ceiling lamp '
+    2300052: ceiling lamp .001
+    2300054: chair
+    2300056: chair.001
+    2300058: chair.002
+    2300060: chair.003
+    2300062: chair.004
+    2300064: chair.005
+    2300066: chair_cushion
+    2300068: chair_cushion.001
+    2300070: chair_cushion.002
+    2300072: chair_cushion.003
+    2300074: chair_cushion.004
+    2300076: chair_cushion.005
+    2300078: clock
+    2300080: clock hand
+    2300082: clock pad
+    2300084: clock second hand
+    2300086: counter
+    2300088: Cube
+    2300090: Cup
+    2300092: Cylinder001
+    2300094: Cylinder002
+    2300096: Cylinder003
+    2300098: Cylinder004
+    2300100: door
+    2300102: door handle_1
+    2300104: door handle_2
+    2300106: door_L.001
+    2300108: door_L.002
+    2300110: door_R.001
+    2300112: door_R.002
+    2300114: drainer
+    2300116: drawer.001
+    2300118: drawer.002
+    2300120: drawer.003
+    2300122: drawer_big
+    2300124: drawer_small
+    2300126: floor
+    2300128: handle_door.001
+    2300130: handle_door.002
+    2300132: handle_door.003
+    2300134: handle_door.004
+    2300136: handle_drawer.001
+    2300138: handle_drawer.002
+    2300140: handle_drawer.003
+    2300142: handle_drawer.004
+    2300144: handle_drawer.005
+    2300146: handle_oven
+    2300148: hood
+    2300150: Lamp_01
+    2300152: Lamp_01.001
+    2300154: leg.001
+    2300156: leg.002
+    2300158: leg.003
+    2300160: leg.004
+    2300162: Line002
+    2300164: Line006
+    2300166: Line007
+    2300168: Object005
+    2300170: oven_door
+    2300172: oven_mirror
+    2300174: picture
+    2300176: Plane002
+    2300178: Plane005
+    2300180: Plate
+    2300182: Plate.001
+    2300184: refrigerator
+    2300186: sink
+    2300188: station
+    2300190: station.001
+    2300192: stove_big.001
+    2300194: stove_big.002
+    2300196: stove_small.001
+    2300198: stove_small.002
+    2300200: stove_switch.000
+    2300202: stove_switch.001
+    2300204: stove_switch.002
+    2300206: stove_switch.003
+    2300208: table
+    2300210: wall_1
+    2300212: wall_2
+    2300214: wall_3
+    2300216: wall_4
+    2300218: wall_cabinet
+    2300220: wall_cabinet.001
+    2300222: wall_cabinet.002
+    2300224: wall_cabinet.003
+    2300226: wall_cabinet.004
+    2300228: window
+    2300230: window mirror 1
+    2300232: window mirror 2
+    3300000: _Extrusion__3303_
+    3300002: _Extrusion__3624_
+    3300004: _Extrusion__4155_
+    3300006: _Extrusion__4410_
+    3300008: _Extrusion__5274_
+    3300010: _Extrusion__5342_
+    3300012: _Extrusion__5638_
+    3300014: _Extrusion__5682_
+    3300016: _Extrusion__6335_
+    3300018: _Extrusion__6630_
+    3300020: _Extrusion__6779_
+    3300022: _Joined_Solid_Geometry__3655_
+    3300024: _Joined_Solid_Geometry__3656_
+    3300026: _Joined_Solid_Geometry__3657_
+    3300028: _Sweep__3932_
+    3300030: _Sweep__5645_
+    3300032: Bowl
+    3300034: Bowl__Instance.003
+    3300036: Bowl__Instance.004
+    3300038: Bowl__Instance.005
+    3300040: Bowl_set
+    3300042: Box009
+    3300044: Box011
+    3300046: Box012
+    3300048: ceiling
+    3300050: 'ceiling lamp '
+    3300052: ceiling lamp .001
+    3300054: chair
+    3300056: chair.001
+    3300058: chair.002
+    3300060: chair.003
+    3300062: chair.004
+    3300064: chair.005
+    3300066: chair_cushion
+    3300068: chair_cushion.001
+    3300070: chair_cushion.002
+    3300072: chair_cushion.003
+    3300074: chair_cushion.004
+    3300076: chair_cushion.005
+    3300078: clock
+    3300080: clock hand
+    3300082: clock pad
+    3300084: clock second hand
+    3300086: counter
+    3300088: Cube
+    3300090: Cup
+    3300092: Cylinder001
+    3300094: Cylinder002
+    3300096: Cylinder003
+    3300098: Cylinder004
+    3300100: door
+    3300102: door handle_1
+    3300104: door handle_2
+    3300106: door_L.001
+    3300108: door_L.002
+    3300110: door_R.001
+    3300112: door_R.002
+    3300114: drainer
+    3300116: drawer.001
+    3300118: drawer.002
+    3300120: drawer.003
+    3300122: drawer_big
+    3300124: drawer_small
+    3300126: floor
+    3300128: handle_door.001
+    3300130: handle_door.002
+    3300132: handle_door.003
+    3300134: handle_door.004
+    3300136: handle_drawer.001
+    3300138: handle_drawer.002
+    3300140: handle_drawer.003
+    3300142: handle_drawer.004
+    3300144: handle_drawer.005
+    3300146: handle_oven
+    3300148: hood
+    3300150: Lamp_01
+    3300152: Lamp_01.001
+    3300154: leg.001
+    3300156: leg.002
+    3300158: leg.003
+    3300160: leg.004
+    3300162: Line002
+    3300164: Line006
+    3300166: Line007
+    3300168: Object005
+    3300170: oven_door
+    3300172: oven_mirror
+    3300174: picture
+    3300176: Plane002
+    3300178: Plane005
+    3300180: Plate
+    3300182: Plate.001
+    3300184: refrigerator
+    3300186: sink
+    3300188: station
+    3300190: station.001
+    3300192: stove_big.001
+    3300194: stove_big.002
+    3300196: stove_small.001
+    3300198: stove_small.002
+    3300200: stove_switch.000
+    3300202: stove_switch.001
+    3300204: stove_switch.002
+    3300206: stove_switch.003
+    3300208: table
+    3300210: wall_1
+    3300212: wall_2
+    3300214: wall_3
+    3300216: wall_4
+    3300218: wall_cabinet
+    3300220: wall_cabinet.001
+    3300222: wall_cabinet.002
+    3300224: wall_cabinet.003
+    3300226: wall_cabinet.004
+    3300228: window
+    3300230: window mirror 1
+    3300232: window mirror 2
+    4300000: ceiling
+    4300002: picture
+    4300004: ceiling lamp .001
+    4300006: Plate.001
+    4300008: Plate
+    4300010: door handle_2
+    4300012: door handle_1
+    4300014: door
+    4300016: 'ceiling lamp '
+    4300018: window mirror 2
+    4300020: window mirror 1
+    4300022: Lamp_01
+    4300024: Lamp_01.001
+    4300026: station.001
+    4300028: window
+    4300030: Cylinder002
+    4300032: Box011
+    4300034: Cylinder004
+    4300036: Object005
+    4300038: Box012
+    4300040: Box009
+    4300042: Plane005
+    4300044: Cylinder003
+    4300046: Line006
+    4300048: Line007
+    4300050: Cylinder001
+    4300052: Line002
+    4300054: Plane002
+    4300056: Cup
+    4300058: Bowl_set
+    4300060: Bowl__Instance.005
+    4300062: Bowl__Instance.004
+    4300064: Bowl__Instance.003
+    4300066: hood
+    4300068: chair
+    4300070: chair_cushion
+    4300072: table
+    4300074: leg.004
+    4300076: leg.003
+    4300078: leg.002
+    4300080: leg.001
+    4300082: Cube
+    4300084: counter
+    4300086: drawer.001
+    4300088: drawer.002
+    4300090: drawer.003
+    4300092: door_L.002
+    4300094: door_R.002
+    4300096: handle_drawer.003
+    4300098: handle_drawer.004
+    4300100: handle_drawer.005
+    4300102: handle_door.004
+    4300104: handle_door.003
+    4300106: refrigerator
+    4300108: _Extrusion__3303_
+    4300110: _Extrusion__3624_
+    4300112: _Extrusion__4155_
+    4300114: _Extrusion__4410_
+    4300116: _Extrusion__5274_
+    4300118: _Extrusion__5342_
+    4300120: _Extrusion__5638_
+    4300122: _Extrusion__5682_
+    4300124: _Extrusion__6335_
+    4300126: _Extrusion__6630_
+    4300128: _Extrusion__6779_
+    4300130: _Joined_Solid_Geometry__3655_
+    4300132: _Joined_Solid_Geometry__3657_
+    4300134: _Joined_Solid_Geometry__3656_
+    4300136: _Sweep__3932_
+    4300138: _Sweep__5645_
+    4300140: wall_cabinet
+    4300142: wall_cabinet.004
+    4300144: wall_cabinet.003
+    4300146: wall_cabinet.002
+    4300148: wall_cabinet.001
+    4300150: station
+    4300152: stove_switch.003
+    4300154: stove_switch.002
+    4300156: stove_switch.000
+    4300158: oven_mirror
+    4300160: handle_door.001
+    4300162: handle_door.002
+    4300164: handle_drawer.001
+    4300166: handle_drawer.002
+    4300168: door_R.001
+    4300170: door_L.001
+    4300172: drainer
+    4300174: drawer_big
+    4300176: drawer_small
+    4300178: handle_oven
+    4300180: oven_door
+    4300182: sink
+    4300184: stove_switch.001
+    4300186: stove_small.002
+    4300188: stove_small.001
+    4300190: stove_big.002
+    4300192: stove_big.001
+    4300194: wall_4
+    4300196: wall_2
+    4300198: wall_3
+    4300200: wall_1
+    4300202: floor
+    4300204: chair.001
+    4300206: chair_cushion.001
+    4300208: chair.002
+    4300210: chair_cushion.002
+    4300212: chair.003
+    4300214: chair_cushion.003
+    4300216: chair.004
+    4300218: chair_cushion.004
+    4300220: chair.005
+    4300222: chair_cushion.005
+    4300224: Bowl
+    4300226: clock
+    4300228: clock pad
+    4300230: clock hand
+    4300232: clock second hand
+    10800000: Spot
+    10800002: Spot.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_bowl1
+    second: {fileID: 2100000, guid: f5cb7e322d1a1ee4d8ae74d38a282a76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_bowl2
+    second: {fileID: 2100000, guid: bf482b59cd3f83943870a1032221d2cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_bowl3
+    second: {fileID: 2100000, guid: 0e4e6547d59bb29429181b02cc5500d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_bowl4
+    second: {fileID: 2100000, guid: 9823fd871fe89f448ae3631532a62f91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_bowl5
+    second: {fileID: 2100000, guid: a988c8e4a0036fa43a3e2f509a536f91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_bowl6
+    second: {fileID: 2100000, guid: 499e56fcd7ba8474bb04de958814632a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_cabinet door
+    second: {fileID: 2100000, guid: 63ca76adbfafc08478542d5b42c35a69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_cabinet handle
+    second: {fileID: 2100000, guid: 5043fa19ec3f5ee4fa45d4be22bf2b5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ceiling
+    second: {fileID: 2100000, guid: 4dd2dd43d2ac13e45b0df2ff2c05abc2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ceiling lamp
+    second: {fileID: 2100000, guid: 4bb6988bf847cdf439d40980322a575f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_chair
+    second: {fileID: 2100000, guid: 7aca6dd3984e3714fbc709e870887a22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_chair pad
+    second: {fileID: 2100000, guid: 06d6e5b7cf660524b9d4b544d834e470, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_clock hand
+    second: {fileID: 2100000, guid: 65a6fe72b0d1ca44dba19b988146015c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_clock pad
+    second: {fileID: 2100000, guid: 8bd1cdb3a6b161d43b9dae986db13c5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_clock sec hand
+    second: {fileID: 2100000, guid: 70f71b95e382c3140818a086e34f270d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_clock_
+    second: {fileID: 2100000, guid: a4a249e3619beca46b8186626d889dfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_cooker hood
+    second: {fileID: 2100000, guid: 66141dc42728476428def7f89d3d22d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_door
+    second: {fileID: 2100000, guid: ba06843697e476047b605bf3e8ecc0a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_door handle
+    second: {fileID: 2100000, guid: 700908436a74f024c976a62609098aab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_floor
+    second: {fileID: 2100000, guid: eafa0685c08d7b74cac838b703c51106, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_lamp
+    second: {fileID: 2100000, guid: f5cf0fa19e9b4d04ebbc4defc0d1526a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_lamp body
+    second: {fileID: 2100000, guid: ac6baa47f29d7cd49ade8208e56aa681, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_mirror
+    second: {fileID: 2100000, guid: de2f83a48b648ed458ef7d80bffd1ff9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_oven cover
+    second: {fileID: 2100000, guid: 625350c29ac6a644083950b7b411cff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_oven mirror
+    second: {fileID: 2100000, guid: 041e557158789cd438ff8dfe2f7f58a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_picture
+    second: {fileID: 2100000, guid: 540282ae75ab55e4ea0d23f21fd4f4ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_refrige hand
+    second: {fileID: 2100000, guid: b95eb74ce7dd17f42801c68ed9d2dc4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_refrigerator
+    second: {fileID: 2100000, guid: 19d857d7d43b037468a6230ec811be2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_shelf
+    second: {fileID: 2100000, guid: b250ce35ab1383d4b84b8137bc5b8cdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_stainless
+    second: {fileID: 2100000, guid: 5e206f4affddf6947a2c8be1c383e204, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_station
+    second: {fileID: 2100000, guid: b8d2bdd1135ff9f4a925efc9771be97b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_station2
+    second: {fileID: 2100000, guid: 55ab909d07626fd4bbf7407b5966670b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_stove pad
+    second: {fileID: 2100000, guid: 75a080353ba5c174dbcf3af14312182b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_stoveSwitch
+    second: {fileID: 2100000, guid: 7d8b44e83fc6f6b428cd0eda27024015, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_table leg
+    second: {fileID: 2100000, guid: 0568bc41819144046bb8ad0f1a262191, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_table wood surface
+    second: {fileID: 2100000, guid: 8231aad9cd4c5704e82d925f86dd40c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_wall
+    second: {fileID: 2100000, guid: 765f237f0214fec4ca1be0945038b1bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_window
+    second: {fileID: 2100000, guid: 3b1ae29f47cb58d49b92ee91bfc1823f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 5e661956458b3bf4b806eb2f7bce1c29, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
