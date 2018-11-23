@@ -55,6 +55,7 @@ public class Player : MonoBehaviour {
 
 
         laser = gameObject.AddComponent<LineRenderer>();
+        laser.widthMultiplier = 0.2f;
 
     }
 
@@ -207,7 +208,8 @@ public class Player : MonoBehaviour {
     
     void UpdateHitObject(Vector3 position, Vector3 normal)
     {
-        laser.SetPosition(0, position);
+        laser.SetPosition(0, hand_Obj.transform.position);
+        laser.SetPosition(1, position);
         hit_Obj.transform.position = position;
         hit_Obj.transform.localRotation = Quaternion.LookRotation(normal);
     }

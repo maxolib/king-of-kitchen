@@ -750,8 +750,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score_Text: {fileID: 256032547}
-  currentScore: 0
+  distanceL_Text: {fileID: 0}
+  distanceR_Text: {fileID: 0}
+  movableL_Text: {fileID: 0}
+  movableR_Text: {fileID: 0}
+  holdL_Text: {fileID: 0}
+  holdR_Text: {fileID: 0}
   hit_Obj: {fileID: 325542970}
+  currentScore: 0
+  movable_Limit: 0
+  collect_Limit: 0
+  holdL: 0
+  holdR: 0
+  jump: 0
   handType:
   - Any
   - Left
@@ -1039,7 +1050,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1013083366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.0013, z: -0.452}
+  m_LocalPosition: {x: 0.003, y: -0.0013, z: -0.189}
   m_LocalScale: {x: 0.1125, y: 0.065963805, z: 0.48519}
   m_Children: []
   m_Father: {fileID: 1432207100}
@@ -1431,7 +1442,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1432207099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: -0.178, z: 1.328}
+  m_LocalPosition: {x: 0.38, y: -0.178, z: 0.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1013083370}
