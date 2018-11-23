@@ -11,6 +11,7 @@ public class Hand_Test : MonoBehaviour {
 
     public GameObject hand_Obj;
     public GameObject camera_Obj;
+    public GameObject hit_Obj;
     public Rigidbody rb_Camera;
 
     public bool hold;
@@ -25,7 +26,6 @@ public class Hand_Test : MonoBehaviour {
     void Start () {
         gameInfo = SetupScene.transform.GetComponent<GameInfo>();
         maxRange = 100f;
-        movable_limit = 10f;
         hold = false;
         movable = false;
 
@@ -48,6 +48,7 @@ public class Hand_Test : MonoBehaviour {
         if (gameInfo.GetGrabUp(handType))
         {
             ResetObjectHold();
+            gameInfo.UpdateHold(hold, handType);
         }
     }
 
@@ -57,8 +58,10 @@ public class Hand_Test : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange))
         {
+
             if (hit.transform != null)
             {
+                gameInfo.UpdateDistance(hit.distance, handType);
                 if (hit.transform.tag == "Food")
                 {
                     // click the button
@@ -67,12 +70,13 @@ public class Hand_Test : MonoBehaviour {
                         print(gameInfo.handType[handType]);
                         hold_T = hit.transform.GetComponent<Transform>();
                         SetObjectHold();
+                        gameInfo.UpdateHold(hold, handType);
                     }
                 }
 
                 if (hit.transform.tag == "Movable")
                 {
-                    if (hit.distance <= movable_limit)
+                    if (hit.distance <= gameInfo.movable_Limit)
                     {
                         movable = true;
                         // click the button
@@ -87,6 +91,7 @@ public class Hand_Test : MonoBehaviour {
                             movable = false;
                         }
                     }
+                    gameInfo.UpdateMovable(movable, handType);
                 }
             }
         }

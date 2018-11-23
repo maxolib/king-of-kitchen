@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
         rb = transform.GetComponent<Rigidbody>();
         mode = 0;
         //Cursor.visible = false;
-        hit_Obj = Instantiate(gameInfo.hit_Obj);
+        hit_Obj = (GameObject) Instantiate(gameInfo.hit_Obj);
         hit_Obj.transform.parent = hand_Obj.transform;
         hit_Obj.transform.position = hand_Obj.transform.position;
         hit_Obj.transform.localRotation = Quaternion.identity;

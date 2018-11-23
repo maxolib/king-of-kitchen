@@ -5,16 +5,41 @@ using UnityEngine.UI;
 using Valve.VR;
 
 public class GameInfo : MonoBehaviour {
-    public Text score_Text;
-    public int currentScore;
+    //-------------------------------------------------------------------
+    // Initial variable
+    //-------------------------------------------------------------------
+    public Text score_Text;         // Text
+    public Text distanceL_Text;
+    public Text distanceR_Text;
+    public Text movableL_Text;
+    public Text movableR_Text;
+    public Text holdL_Text;
+    public Text holdR_Text;
 
-    public GameObject hit_Obj;
+    public Object hit_Obj;          // Prefab resources
 
+    Color green_Color;              // Material
+    Color red_Color;
+    
+    public int currentScore;        // Common
+    public float movable_Limit;            
+    public float collect_Limit;            
     public string[] handType = {"Any", "Left", "Right"};
 
+    //--------------------------------------------------------------------
+    // Function
+    //--------------------------------------------------------------------
     void Start()
     {
         currentScore = 0;
+
+        hit_Obj = Resources.Load("Asset/Prefabs/hit_Obj");      // load prefab
+        
+        green_Color = new Color(0, 255, 0);                     // load Material
+        red_Color = new Color(255, 0, 0);
+
+        movable_Limit = 10f;
+        collect_Limit = 10f;
     }
 
     public void AddScore(int score)
@@ -26,6 +51,78 @@ public class GameInfo : MonoBehaviour {
     public void UpdateScore()
     {
         score_Text.text = currentScore.ToString();
+    }
+
+    public void UpdateDistance(float distance, int handType)
+    {
+        if (handType == 1)
+        {
+            distanceL_Text.text = distance.ToString();
+        }
+        else if (handType == 2)
+        {
+            distanceR_Text.text = distance.ToString();
+        }
+    }
+
+    public void UpdateMovable(bool movable, int handType)
+    {
+        if (handType == 1)
+        {
+            if (movable)
+            {
+                movableL_Text.text = "True";
+                movableL_Text.color = green_Color;
+            }
+            else
+            {
+                movableL_Text.text = "False";
+                movableL_Text.color = red_Color;
+            }
+        }
+        else if (handType == 2)
+        {
+            if (movable)
+            {
+                movableR_Text.text = "True";
+                movableR_Text.color = green_Color;
+            }
+            else
+            {
+                movableR_Text.text = "False";
+                movableR_Text.color = red_Color;
+            }
+        }
+    }
+
+    public void UpdateHold(bool hold, int handType)
+    {
+        if (handType == 1)
+        {
+            if (hold)
+            {
+                holdL_Text.text = "True";
+                holdL_Text.color = green_Color;
+            }
+            else
+            {
+                holdL_Text.text = "False";
+                holdL_Text.color = red_Color;
+            }
+        }
+        else if (handType == 2)
+        {
+            if (hold)
+            {
+                holdR_Text.text = "True";
+                holdR_Text.color = green_Color;
+            }
+            else
+            {
+                holdR_Text.text = "False";
+                holdR_Text.color = red_Color;
+            }
+        }
     }
 
     public bool GetGrabDown(int handType)
