@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4862443437974178}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: hit_Obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33242593994631146}
   - component: {fileID: 23784868912324930}
   - component: {fileID: 136730086791864678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

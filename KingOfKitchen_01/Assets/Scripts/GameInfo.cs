@@ -23,7 +23,10 @@ public class GameInfo : MonoBehaviour {
     
     public int currentScore;        // Common
     public float movable_Limit;            
-    public float collect_Limit;            
+    public float collect_Limit;
+    public bool holdL;
+    public bool holdR;
+    public bool jump;
     public string[] handType = {"Any", "Left", "Right"};
 
     //--------------------------------------------------------------------
@@ -33,13 +36,16 @@ public class GameInfo : MonoBehaviour {
     {
         currentScore = 0;
 
-        hit_Obj = Resources.Load("Asset/Prefabs/hit_Obj");      // load prefab
+        //hit_Obj = Resources.Load("Assets/Prefabs/hit_Obj", typeof(GameObject));      // load prefab
         
         green_Color = new Color(0, 255, 0);                     // load Material
         red_Color = new Color(255, 0, 0);
 
         movable_Limit = 10f;
         collect_Limit = 10f;
+        holdL = false;
+        holdR = false;
+        jump = false;
     }
 
     public void AddScore(int score)
@@ -103,11 +109,13 @@ public class GameInfo : MonoBehaviour {
             {
                 holdL_Text.text = "True";
                 holdL_Text.color = green_Color;
+                holdL = true;
             }
             else
             {
                 holdL_Text.text = "False";
                 holdL_Text.color = red_Color;
+                holdL = false;
             }
         }
         else if (handType == 2)
@@ -116,11 +124,13 @@ public class GameInfo : MonoBehaviour {
             {
                 holdR_Text.text = "True";
                 holdR_Text.color = green_Color;
+                holdR = true;
             }
             else
             {
                 holdR_Text.text = "False";
                 holdR_Text.color = red_Color;
+                holdR = false;
             }
         }
     }
@@ -158,6 +168,46 @@ public class GameInfo : MonoBehaviour {
         else if (handType == 2)
         {
             return SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.RightHand);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool GetTeleportDown(int handType)
+    {
+        if (handType == 0)
+        {
+            return SteamVR_Input._default.inActions.Teleport.GetStateDown(SteamVR_Input_Sources.Any);
+        }
+        else if (handType == 1)
+        {
+            return SteamVR_Input._default.inActions.Teleport.GetStateDown(SteamVR_Input_Sources.LeftHand);
+        }
+        else if (handType == 2)
+        {
+            return SteamVR_Input._default.inActions.Teleport.GetStateDown(SteamVR_Input_Sources.RightHand);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool GetTeleportUp(int handType)
+    {
+        if (handType == 0)
+        {
+            return SteamVR_Input._default.inActions.Teleport.GetStateUp(SteamVR_Input_Sources.Any);
+        }
+        else if (handType == 1)
+        {
+            return SteamVR_Input._default.inActions.Teleport.GetStateUp(SteamVR_Input_Sources.LeftHand);
+        }
+        else if (handType == 2)
+        {
+            return SteamVR_Input._default.inActions.Teleport.GetStateUp(SteamVR_Input_Sources.RightHand);
         }
         else
         {
