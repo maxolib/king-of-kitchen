@@ -17,17 +17,20 @@ public class GameInfo : MonoBehaviour {
     public Text holdR_Text;
 
     public Object hit_Obj;          // Prefab resources
+    public GameObject Laser_Obj;
 
     Color green_Color;              // Material
     Color red_Color;
     
     public int currentScore;        // Common
+    public int modeID;              // Simple Ray-Casting number: 0, GoGo number: 1
     public float movable_Limit;            
     public float collect_Limit;
     public bool holdL;
     public bool holdR;
     public bool jump;
     public string[] handType = {"Any", "Left", "Right"};
+    public string[] modeType = { "Ray-Casting", "Homer"};
 
     //--------------------------------------------------------------------
     // Function
@@ -41,6 +44,7 @@ public class GameInfo : MonoBehaviour {
         green_Color = new Color(0, 255, 0);                     // load Material
         red_Color = new Color(255, 0, 0);
 
+        modeID = 0;
         movable_Limit = 10f;
         collect_Limit = 10f;
         holdL = false;
@@ -217,6 +221,12 @@ public class GameInfo : MonoBehaviour {
 
     public float FindDistance(Vector3 s, Vector3 d)
     {
+        return Vector3.Distance(s, d);
+    }
+
+    public float FindDistanceIgnoreY(Vector3 s, Vector3 d)
+    {
+        d.y = s.y;
         return Vector3.Distance(s, d);
     }
     

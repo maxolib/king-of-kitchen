@@ -127,7 +127,6 @@ public class Hand_Test : MonoBehaviour {
         hold_T.parent = transform;
         hold_T.localRotation = Quaternion.identity;
         hold_T.GetComponent<Rigidbody>().isKinematic = true;
-
     }
 
     void ResetObjectHold()

@@ -54,7 +54,9 @@ public class Player : MonoBehaviour {
         hit_Obj.transform.localRotation = Quaternion.identity;
 
 
-        laser = gameObject.AddComponent<LineRenderer>();
+        //laser = gameObject.AddComponent<LineRenderer>();
+        laser = Instantiate(gameInfo.Laser_Obj.gameObject.GetComponent<LineRenderer>());
+        laser.transform.parent = transform.parent;
         laser.widthMultiplier = 0.2f;
 
     }

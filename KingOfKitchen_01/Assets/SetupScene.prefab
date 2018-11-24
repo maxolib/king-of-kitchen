@@ -67,8 +67,10 @@ MonoBehaviour:
     type: 2}
   holdR_Text: {fileID: 114883493418135304, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
     type: 2}
-  hit_Obj: {fileID: 0}
+  hit_Obj: {fileID: 1592222724910274, guid: 4189760a88bca6d4b826292086c83c44, type: 2}
+  Laser_Obj: {fileID: 1263432006491870, guid: 3b3a4c3ce3acc204db52cfe14c51d210, type: 2}
   currentScore: 0
+  modeID: 0
   movable_Limit: 0
   collect_Limit: 0
   holdL: 0
@@ -78,6 +80,9 @@ MonoBehaviour:
   - Any
   - Left
   - Right
+  modeType:
+  - Ray-Casting
+  - Homer
 --- !u!114 &114242831437542428
 MonoBehaviour:
   m_ObjectHideFlags: 1
