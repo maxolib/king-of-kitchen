@@ -53,8 +53,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e55d9deb837cf14d97ed86a84cd6a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score_Text: {fileID: 0}
+  score_Text: {fileID: 114899355200224426, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
+    type: 2}
+  distanceL_Text: {fileID: 114573418635437216, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
+    type: 2}
+  distanceR_Text: {fileID: 114784189828695718, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
+    type: 2}
+  movableL_Text: {fileID: 114924575087893370, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
+    type: 2}
+  movableR_Text: {fileID: 114413918765816994, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
+    type: 2}
+  holdL_Text: {fileID: 114274545883559410, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
+    type: 2}
+  holdR_Text: {fileID: 114883493418135304, guid: 4f9b687ee48b3384c9dec9b8362d2fe8,
+    type: 2}
+  hit_Obj: {fileID: 0}
   currentScore: 0
+  movable_Limit: 0
+  collect_Limit: 0
+  holdL: 0
+  holdR: 0
+  jump: 0
+  handType:
+  - Any
+  - Left
+  - Right
 --- !u!114 &114242831437542428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,8 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d271c310b76d0ff48b6322157bc9cecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationSet: {fileID: 0}
-  foodSet: {fileID: 0}
+  locationSet: {fileID: 1314687013039404, guid: 2e150e062cbc18c49bbd38ce513814fe,
+    type: 2}
+  foodSet: {fileID: 1476302608413142, guid: 1cc7bcfce908a1145b949e18bb6d7f5b, type: 2}
   ratio: 0.8
 --- !u!114 &114883566136320228
 MonoBehaviour:
@@ -82,3 +106,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   held: 0
+  selected: 0
