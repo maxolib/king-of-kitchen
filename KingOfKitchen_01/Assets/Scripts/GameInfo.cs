@@ -24,7 +24,9 @@ public class GameInfo : MonoBehaviour {
     
     public int currentScore;        // Common
     public int modeID;              // Simple Ray-Casting number: 0, GoGo number: 1
-    public float movable_Limit;            
+    public float hand_Limit;
+    public float movable_Limit;
+    public float jumpable_Limit;
     public float collect_Limit;
     public bool holdL;
     public bool holdR;
@@ -45,8 +47,10 @@ public class GameInfo : MonoBehaviour {
         red_Color = new Color(255, 0, 0);
 
         modeID = 0;
-        movable_Limit = 10f;
+        hand_Limit = 0.7f;
+        movable_Limit = 20f;
         collect_Limit = 10f;
+        jumpable_Limit = 20f;
         holdL = false;
         holdR = false;
         jump = false;
@@ -226,8 +230,9 @@ public class GameInfo : MonoBehaviour {
 
     public float FindDistanceIgnoreY(Vector3 s, Vector3 d)
     {
-        d.y = s.y;
-        return Vector3.Distance(s, d);
+        Vector3 sNew = new Vector3(s.x, 0f, s.z);
+        Vector3 dNew = new Vector3(d.x, 0f, d.z);
+        return Vector3.Distance(sNew, dNew);
     }
     
 

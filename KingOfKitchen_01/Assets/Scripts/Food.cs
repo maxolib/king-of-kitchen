@@ -13,7 +13,14 @@ public class Food : MonoBehaviour {
         held = false;
         selected = false;
     }
-    
+    void Update()
+    {
+        if (!selected)
+        {
+            transform.Rotate(0, 1, 0);
+        }
+    }
+
     public void DestroyGameObject()
     {
         Destroy(gameObject);
