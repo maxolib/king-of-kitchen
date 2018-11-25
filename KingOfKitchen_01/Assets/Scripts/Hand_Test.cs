@@ -19,6 +19,7 @@ public class Hand_Test : MonoBehaviour {
     public bool hold;
     public bool movable;
     public bool click;
+    public bool grab_Hold;
     public Vector3 click_Position;
     public Vector3 click_Direction;
     public float click_Distance;
@@ -33,8 +34,10 @@ public class Hand_Test : MonoBehaviour {
     void Start () {
         gameInfo = SetupScene.transform.GetComponent<GameInfo>();
         maxRange = 100f;
+        click = false;
         hold = false;
         movable = false;
+        grab_Hold = false;
         hit_Obj = (GameObject)Instantiate(gameInfo.hit_Obj);
 
         rb_Camera = head_Obj.transform.GetComponent<Rigidbody>();
@@ -101,6 +104,14 @@ public class Hand_Test : MonoBehaviour {
                     // click the button
                     if (gameInfo.GetGrabDown(handType))
                     {
+                        grab_Hold = true;
+                    }
+                    else if (gameInfo.GetGrabUp(handType))
+                    {
+                        grab_Hold = false;
+                    }
+                    if (grab_Hold)
+                    {
                         // add force to move
                         if (!click)
                         {
@@ -113,12 +124,12 @@ public class Hand_Test : MonoBehaviour {
                         float d = gameInfo.FindDistanceIgnoreY(click_Position, transform.position);
                         float M = gameInfo.hand_Limit;
                         float p = ((d / M) * (click_Distance + 200f));
-                        //rb_Camera.AddForce(transform.forward.x * p, 0, transform.forward.z * p);
+                        rb_Camera.AddForce(transform.forward.x * 100, 0, transform.forward.z * 100);
                         print("##############" + p);
-                        rb_Camera.AddForce(transform.forward.x * (400f + hit.distance * 50), 0, transform.forward.z * (400f + hit.distance * 50));
+                        //rb_Camera.AddForce(transform.forward.x * (400f + hit.distance * 50), 0, transform.forward.z * (400f + hit.distance * 50));
                         movable = true;
                     }
-                    else if (gameInfo.GetGrabUp(handType))
+                    else
                     {
                         click = false;
                     }
