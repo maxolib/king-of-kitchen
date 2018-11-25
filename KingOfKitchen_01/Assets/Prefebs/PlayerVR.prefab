@@ -515,13 +515,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SetupScene: {fileID: 1639427767238938, guid: dd3fdb4de94f6874c8c7045986cb5ae6, type: 2}
   hand_Obj: {fileID: 0}
-  camera_Obj: {fileID: 1464570858569736}
+  head_Obj: {fileID: 1464570858569736}
+  camera_Obj: {fileID: 1404017588805842}
   hit_Obj: {fileID: 0}
   rb_Camera: {fileID: 0}
   simulator: {fileID: 0}
   handType: 2
   hold: 0
   movable: 0
+  click: 0
+  grab_Hold: 0
+  click_Position: {x: 0, y: 0, z: 0}
+  click_Direction: {x: 0, y: 0, z: 0}
+  click_Distance: 0
   food: {fileID: 0}
   hold_T: {fileID: 0}
 --- !u!114 &114500918603034836
@@ -537,13 +543,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SetupScene: {fileID: 1639427767238938, guid: dd3fdb4de94f6874c8c7045986cb5ae6, type: 2}
   hand_Obj: {fileID: 0}
-  camera_Obj: {fileID: 1464570858569736}
+  head_Obj: {fileID: 1464570858569736}
+  camera_Obj: {fileID: 1404017588805842}
   hit_Obj: {fileID: 0}
   rb_Camera: {fileID: 0}
   simulator: {fileID: 0}
   handType: 1
   hold: 0
   movable: 0
+  click: 0
+  grab_Hold: 0
+  click_Position: {x: 0, y: 0, z: 0}
+  click_Direction: {x: 0, y: 0, z: 0}
+  click_Distance: 0
   food: {fileID: 0}
   hold_T: {fileID: 0}
 --- !u!114 &114586788380772822

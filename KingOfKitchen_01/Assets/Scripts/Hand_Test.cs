@@ -39,6 +39,7 @@ public class Hand_Test : MonoBehaviour {
         movable = false;
         grab_Hold = false;
         hit_Obj = (GameObject)Instantiate(gameInfo.hit_Obj);
+        click_Direction = transform.forward;
 
         rb_Camera = head_Obj.transform.GetComponent<Rigidbody>();
         simulator = new GameObject().AddComponent<Rigidbody>();
@@ -116,15 +117,15 @@ public class Hand_Test : MonoBehaviour {
                         if (!click)
                         {
                             click_Position = transform.position;
-                            click_Direction = transform.forward;
+                            click_Direction = head_Obj.transform.forward;
                             click_Distance = hit.distance;
                             click = true;
                         }
 
                         float d = gameInfo.FindDistanceIgnoreY(click_Position, transform.position);
                         float M = gameInfo.hand_Limit;
-                        float p = ((d / M) * (click_Distance + 200f));
-                        rb_Camera.AddForce(transform.forward.x * 100, 0, transform.forward.z * 100);
+                        float p = ((d / M ) * click_Distance) + 20f;
+                        rb_Camera.AddForce(transform.forward.x * p, 0, transform.forward.z * p);
                         print("##############" + p);
                         //rb_Camera.AddForce(transform.forward.x * (400f + hit.distance * 50), 0, transform.forward.z * (400f + hit.distance * 50));
                         movable = true;
