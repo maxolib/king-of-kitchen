@@ -24,6 +24,7 @@ public class Hand_Test : MonoBehaviour {
     public bool movable;
     public bool click;
     public bool grab_Hold;
+    public float hold_Distance;
     public float click_Distance;
     public Food food;
     public Vector3 click_Position;
@@ -70,32 +71,18 @@ public class Hand_Test : MonoBehaviour {
 
     void Holding()
     {
-        simulator.velocity = (transform.position - simulator.transform.position) * 50f;
-        // change position Food object
-        if (true)
-        {
-
-        }
-        // Ray-Casting technique
-        else if (true)
-        {
-
-        }
-        else if (gameInfo.modeID == 0)
-        {
-
-        }
+        simulator.velocity = (transform.position - simulator.transform.position)  * 100f;
         // Homer technique
-        else
+        if (gameInfo.modeID == 1)
         {
             float treshold = gameInfo.hand_Limit / 2;
             float distance = gameInfo.FindDistanceIgnoreY(transform.position, camera_Obj.transform.position);
             if (distance >= treshold)
             {
-                hold_T.position += click_Direction * 20f;
+                hold_T.position += transform.forward * 0.1f;
             }
             else {
-                hold_T.position -= click_Direction * 20f;
+                hold_T.position -= transform.forward * 0.1f;
             }
         }
 
@@ -125,6 +112,7 @@ public class Hand_Test : MonoBehaviour {
                     if (gameInfo.GetGrabDown(handType))
                     {
                         hold_T = hit.transform.GetComponent<Transform>();
+                        hold_Distance = hit.distance;
                         SetObjectHold();
                         gameInfo.UpdateHold(hold, handType);
                     }
@@ -199,39 +187,12 @@ public class Hand_Test : MonoBehaviour {
         food.held = true;
         food.selected = true;
         hold = true;
-        // Hold the object in " Ray-Casting Mode "
-        if (gameInfo.modeID == 0)
-        {
-            hold_T.position = transform.position;
-            hold_T.parent = transform;
-            hold_T.localRotation = Quaternion.identity;
-            hold_T.GetComponent<Rigidbody>().isKinematic = true;
-        }
-        // Test Code
-        if (false)
-        {
-            hold_T.GetComponent<Rigidbody>().isKinematic = true;
-            hold_T.parent = transform.parent;
-            // may not
-            hold_T.localRotation = Quaternion.identity;
-            // if object did not move the Hand
-            hold_T.position += (transform.position - hold_T.transform.position);
-            hold_T.localRotation = transform.localRotation;
-
-            // For Homer or GoGo Technique
-            float threshold = gameInfo.hand_Limit / 2f;
-            float distance = gameInfo.FindDistanceIgnoreY(transform.position, camera_Obj.transform.position);
-            if (distance >= threshold)
-            {
-                hold_T.transform.position = (transform.position - hold_T.transform.position) * 20f;
-            }
-            else
-            {
-                hold_T.transform.position = -(transform.position - hold_T.transform.position) * 20f;
-            }
-
-
-        }
+        hold_T.parent = transform;
+        hold_T.localRotation = Quaternion.identity;
+        hold_T.GetComponent<Rigidbody>().useGravity = false;
+        hold_T.GetComponent<Rigidbody>().isKinematic = true;
+        
+        
         
     }
 
