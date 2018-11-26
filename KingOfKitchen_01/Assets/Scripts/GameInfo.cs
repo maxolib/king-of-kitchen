@@ -28,6 +28,7 @@ public class GameInfo : MonoBehaviour {
     public int modeID;              // Simple Ray-Casting number: 0, GoGo number: 1
     public float timer;
     public float time;
+    public float maxRange;
     public float hand_Limit;
     public float movable_Limit;
     public float jumpable_Limit;
@@ -54,6 +55,7 @@ public class GameInfo : MonoBehaviour {
         modeID = 1;
         timer = 45;
         time = timer;
+        maxRange = 100f;
         hand_Limit = 0.7f;
         movable_Limit = 20f;
         collect_Limit = 10f;
@@ -268,7 +270,6 @@ public class GameInfo : MonoBehaviour {
     public void UpdateMode()
     {
         modeID = (modeID == 0) ? 1 : 0;
-        print("ID: " + modeID + ", " + modeType[modeID]);
         mode_Text.text = modeType[modeID];
     }
 

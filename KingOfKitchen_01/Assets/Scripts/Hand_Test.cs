@@ -5,36 +5,36 @@ using UnityEngine.SceneManagement;
 using Valve.VR;
 
 public class Hand_Test : MonoBehaviour {
-    
+    // Import GameInfo status
     public GameObject SetupScene;
     GameInfo gameInfo;
 
+    // Prefab of any GameObject
     public GameObject hand_Obj;
     public GameObject head_Obj;
     public GameObject camera_Obj;
     public GameObject hit_Obj;
     public Rigidbody rb_Camera;
     public Rigidbody simulator;
+    LineRenderer laser;
 
+    // Common valiable
     public int handType;
     public bool hold;
     public bool movable;
     public bool click;
     public bool grab_Hold;
-    public Vector3 click_Position;
-    public Vector3 click_Direction;
     public float click_Distance;
     public Food food;
+    public Vector3 click_Position;
+    public Vector3 click_Direction;
     public Transform hold_T;
 
-    LineRenderer laser;
-
-    float maxRange;
-    float movable_limit;
+    // Local value
 
     void Start () {
+        // Common value of Hand
         gameInfo = SetupScene.transform.GetComponent<GameInfo>();
-        maxRange = 100f;
         click = false;
         hold = false;
         movable = false;
@@ -42,34 +42,64 @@ public class Hand_Test : MonoBehaviour {
         hit_Obj = (GameObject)Instantiate(gameInfo.hit_Obj);
         click_Direction = transform.forward;
 
+        // Rigibody Simulation and VR-Camera Setup
         rb_Camera = head_Obj.transform.GetComponent<Rigidbody>();
         simulator = new GameObject().AddComponent<Rigidbody>();
         simulator.name = "simulator";
         simulator.transform.parent = transform.parent;
 
-        // LineRenderer
-        //laser = gameObject.AddComponent<LineRenderer>();
+        // LineRenderer setup
         laser = Instantiate(gameInfo.Laser_Obj.gameObject.GetComponent<LineRenderer>());
         laser.transform.parent = transform.parent;
         laser.widthMultiplier = 0.2f;
     }
 	
 	void Update () {
+        // this Hand is holding the object 
         if (hold && hold_T != null)
         {
             Holding();
             UpdateHitObject(transform.position, Vector3.zero);
         }
+        // Enable Ray-Casting point out from Hand
         else
         {
             Pointing();
         }
-        //print(camera_Obj.transform.position.ToString() + ", " + transform.position.ToString() + " ###" + gameInfo.FindDistanceIgnoreY(camera_Obj.transform.position, transform.position));
     }
 
     void Holding()
     {
         simulator.velocity = (transform.position - simulator.transform.position) * 50f;
+        // change position Food object
+        if (true)
+        {
+
+        }
+        // Ray-Casting technique
+        else if (true)
+        {
+
+        }
+        else if (gameInfo.modeID == 0)
+        {
+
+        }
+        // Homer technique
+        else
+        {
+            float treshold = gameInfo.hand_Limit / 2;
+            float distance = gameInfo.FindDistanceIgnoreY(transform.position, camera_Obj.transform.position);
+            if (distance >= treshold)
+            {
+                hold_T.position += click_Direction * 20f;
+            }
+            else {
+                hold_T.position -= click_Direction * 20f;
+            }
+        }
+
+
         if (gameInfo.GetGrabUp(handType))
         {
             ResetObjectHold();
@@ -82,7 +112,8 @@ public class Hand_Test : MonoBehaviour {
         hold = false;
         RaycastHit hit;
         Vector3[] temp = {transform.position, Vector3.zero};
-        if (Physics.Raycast(transform.position, transform.forward, out hit, maxRange))
+        // Create Ray-casting
+        if (Physics.Raycast(transform.position, transform.forward, out hit, gameInfo.maxRange))
         {
             if (hit.transform != null)
             {
@@ -91,10 +122,8 @@ public class Hand_Test : MonoBehaviour {
                 temp[1] = hit.normal;
                 if (hit.transform.tag == "Food" && hit.distance <= gameInfo.collect_Limit)
                 {
-                    // click the button
                     if (gameInfo.GetGrabDown(handType))
                     {
-                        print(gameInfo.handType[handType]);
                         hold_T = hit.transform.GetComponent<Transform>();
                         SetObjectHold();
                         gameInfo.UpdateHold(hold, handType);
@@ -103,7 +132,7 @@ public class Hand_Test : MonoBehaviour {
                 else if (hit.transform.tag == "Movable" && hit.distance <= gameInfo.movable_Limit)
                 {
                     movable = true;
-                    // click the button
+                    // Check holding of Coltroller
                     if (gameInfo.GetGrabDown(handType))
                     {
                         grab_Hold = true;
@@ -114,7 +143,7 @@ public class Hand_Test : MonoBehaviour {
                     }
                     if (grab_Hold)
                     {
-                        // add force to move
+                        // Keep click point information
                         if (!click)
                         {
                             click_Position = transform.position;
@@ -123,6 +152,7 @@ public class Hand_Test : MonoBehaviour {
                             click = true;
                         }
 
+                        // Add force every frame
                         float d = gameInfo.FindDistanceIgnoreY(click_Position, transform.position);
                         float M = gameInfo.hand_Limit;
                         float p = ((d / M ) * click_Distance) + 20f;
@@ -144,12 +174,11 @@ public class Hand_Test : MonoBehaviour {
                     }
                     gameInfo.UpdateMovable(movable, handType);
                 }
-
+                // Add force when hit the jumable object
                 else if (hit.transform.tag == "Jumpable" && hit.distance <= gameInfo.jumpable_Limit)
                 {
                     if (gameInfo.GetGrabDown(handType))
                     {
-
                         rb_Camera.AddForce(0f, ((hit.point.y - camera_Obj.transform.position.y) * 80f) + 200f, 0f);
                     }
                 }
@@ -160,6 +189,7 @@ public class Hand_Test : MonoBehaviour {
                 }
             }
         }
+        // Update position of the hit object in each case
         UpdateHitObject(temp[0], temp[1]);
     }
 
@@ -169,10 +199,40 @@ public class Hand_Test : MonoBehaviour {
         food.held = true;
         food.selected = true;
         hold = true;
-        hold_T.position = transform.position;
-        hold_T.parent = transform;
-        hold_T.localRotation = Quaternion.identity;
-        hold_T.GetComponent<Rigidbody>().isKinematic = true;
+        // Hold the object in " Ray-Casting Mode "
+        if (gameInfo.modeID == 0)
+        {
+            hold_T.position = transform.position;
+            hold_T.parent = transform;
+            hold_T.localRotation = Quaternion.identity;
+            hold_T.GetComponent<Rigidbody>().isKinematic = true;
+        }
+        // Test Code
+        if (false)
+        {
+            hold_T.GetComponent<Rigidbody>().isKinematic = true;
+            hold_T.parent = transform.parent;
+            // may not
+            hold_T.localRotation = Quaternion.identity;
+            // if object did not move the Hand
+            hold_T.position += (transform.position - hold_T.transform.position);
+            hold_T.localRotation = transform.localRotation;
+
+            // For Homer or GoGo Technique
+            float threshold = gameInfo.hand_Limit / 2f;
+            float distance = gameInfo.FindDistanceIgnoreY(transform.position, camera_Obj.transform.position);
+            if (distance >= threshold)
+            {
+                hold_T.transform.position = (transform.position - hold_T.transform.position) * 20f;
+            }
+            else
+            {
+                hold_T.transform.position = -(transform.position - hold_T.transform.position) * 20f;
+            }
+
+
+        }
+        
     }
 
     void ResetObjectHold()
