@@ -18,7 +18,7 @@ public class GenerateFood : MonoBehaviour {
 
         int locationNum = locationList.Count;
         int foodNum = foodList.Count;
-        int setNum = CalculateSetNumber(locationNum, ratio);
+        //int setNum = CalculateSetNumber(locationNum, ratio);
         
         
         //show all transform
@@ -30,7 +30,8 @@ public class GenerateFood : MonoBehaviour {
             }
 
             int randomNum = Random.Range(1, foodNum);
-            var temp = Instantiate(foodList[randomNum].transform, t.position, Quaternion.identity);
+            Instantiate(foodList[randomNum].transform, t.position, Quaternion.identity);
+            //var temp = Instantiate(foodList[randomNum].transform, t.position, Quaternion.identity);
 
             //Destroy(temp, 5);
 

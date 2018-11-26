@@ -15,6 +15,8 @@ public class GameInfo : MonoBehaviour {
     public Text movableR_Text;
     public Text holdL_Text;
     public Text holdR_Text;
+    public Text time_Text;
+    public Text mode_Text;
 
     public Object hit_Obj;          // Prefab resources
     public GameObject Laser_Obj;
@@ -24,6 +26,8 @@ public class GameInfo : MonoBehaviour {
     
     public int currentScore;        // Common
     public int modeID;              // Simple Ray-Casting number: 0, GoGo number: 1
+    public float timer;
+    public float time;
     public float hand_Limit;
     public float movable_Limit;
     public float jumpable_Limit;
@@ -31,6 +35,7 @@ public class GameInfo : MonoBehaviour {
     public bool holdL;
     public bool holdR;
     public bool jump;
+    public bool status;
     public string[] handType = {"Any", "Left", "Right"};
     public string[] modeType = { "Ray-Casting", "Homer"};
 
@@ -46,7 +51,9 @@ public class GameInfo : MonoBehaviour {
         green_Color = new Color(0, 255, 0);                     // load Material
         red_Color = new Color(255, 0, 0);
 
-        modeID = 0;
+        modeID = 1;
+        timer = 45;
+        time = timer;
         hand_Limit = 0.7f;
         movable_Limit = 20f;
         collect_Limit = 10f;
@@ -54,7 +61,20 @@ public class GameInfo : MonoBehaviour {
         holdL = false;
         holdR = false;
         jump = false;
+        status = true;
+        UpdateMode();
     }
+
+    void Update()
+    {
+        UpdateTimer();
+        // Switch Technique
+        if (Input.GetKeyDown("m"))
+        {
+            UpdateMode();
+        }
+
+    } 
 
     public void AddScore(int score)
     {
@@ -235,6 +255,21 @@ public class GameInfo : MonoBehaviour {
         return Vector3.Distance(sNew, dNew);
     }
     
+    public void UpdateTimer()
+    {
+        time -= Time.deltaTime;
+        time_Text.text = time.ToString("F2") + " s";
+        if (time <= 0)
+        {
+            status = false;
+        }
+    }
 
+    public void UpdateMode()
+    {
+        modeID = (modeID == 0) ? 1 : 0;
+        print("ID: " + modeID + ", " + modeType[modeID]);
+        mode_Text.text = modeType[modeID];
+    }
 
 }

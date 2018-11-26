@@ -7,7 +7,7 @@ public class Hand : MonoBehaviour {
     GameInfo gameInfo;
 	void Start()
     {
-        gameInfo = SetupScene.transform.GetComponent<GameInfo>();
+        //gameInfo = SetupScene.transform.GetComponent<GameInfo>();
     }
 	// Update is called once per frame
 	void Update () {

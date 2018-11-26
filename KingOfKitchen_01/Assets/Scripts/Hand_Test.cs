@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 
 public class Hand_Test : MonoBehaviour {
@@ -117,7 +118,7 @@ public class Hand_Test : MonoBehaviour {
                         if (!click)
                         {
                             click_Position = transform.position;
-                            click_Direction = head_Obj.transform.forward;
+                            click_Direction = transform.forward;
                             click_Distance = hit.distance;
                             click = true;
                         }
@@ -125,9 +126,8 @@ public class Hand_Test : MonoBehaviour {
                         float d = gameInfo.FindDistanceIgnoreY(click_Position, transform.position);
                         float M = gameInfo.hand_Limit;
                         float p = ((d / M ) * click_Distance) + 20f;
-                        rb_Camera.AddForce(transform.forward.x * p, 0, transform.forward.z * p);
-                        print("##############" + p);
-                        //rb_Camera.AddForce(transform.forward.x * (400f + hit.distance * 50), 0, transform.forward.z * (400f + hit.distance * 50));
+                        Vector3 power = GetVectorAddForce(p);
+                        rb_Camera.AddForce(power);
                         movable = true;
                     }
                     else
@@ -194,6 +194,21 @@ public class Hand_Test : MonoBehaviour {
         laser.SetPosition(1, position);
         hit_Obj.transform.position = position;
         hit_Obj.transform.localRotation = Quaternion.LookRotation(normal);
+    }
+
+    Vector3 GetVectorAddForce(float power)
+    {
+        Vector3 result = new Vector3(transform.forward.x * power, 0, transform.forward.z * power);
+        float power_Limit = 100f;
+        if (result.x >= power_Limit)
+        {
+            result.x = power_Limit;
+        }
+        if (result.z >= power_Limit)
+        {
+            result.z = power_Limit;
+        }
+        return result;
     }
 
 }
