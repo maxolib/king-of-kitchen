@@ -19,6 +19,7 @@ public class GameInfo : MonoBehaviour {
     public Text mode_Text;
 
     public Object hit_Obj;          // Prefab resources
+    public GameObject hand_Obj;
     public GameObject Laser_Obj;
 
     Color green_Color;              // Material
@@ -26,13 +27,14 @@ public class GameInfo : MonoBehaviour {
     
     public int currentScore;        // Common
     public int modeID;              // Simple Ray-Casting number: 0, GoGo number: 1
-    public float timer;
+    public float time_Limit;
     public float time;
     public float maxRange;
     public float hand_Limit;
     public float movable_Limit;
     public float jumpable_Limit;
     public float collect_Limit;
+    public float velocity_Limit;
     public bool holdL;
     public bool holdR;
     public bool jump;
@@ -45,21 +47,20 @@ public class GameInfo : MonoBehaviour {
     //--------------------------------------------------------------------
     void Start()
     {
-        currentScore = 0;
-
-        //hit_Obj = Resources.Load("Assets/Prefabs/hit_Obj", typeof(GameObject));      // load prefab
         
-        green_Color = new Color(0, 255, 0);                     // load Material
+        green_Color = new Color(0, 255, 0);     // load Material
         red_Color = new Color(255, 0, 0);
 
-        modeID = 1;
-        timer = 45;
-        time = timer;
+        modeID = 1;                             // set initial values
+        currentScore = 0;
+        time_Limit = 90;
+        time = time_Limit;
         maxRange = 100f;
         hand_Limit = 0.7f;
         movable_Limit = 20f;
         collect_Limit = 10f;
         jumpable_Limit = 20f;
+        velocity_Limit = 100f;
         holdL = false;
         holdR = false;
         jump = false;

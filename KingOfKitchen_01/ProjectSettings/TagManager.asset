@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Food
   - Movable
+  - Jumpable
+  - Fire
+  - Button
   layers:
   - Default
   - TransparentFX

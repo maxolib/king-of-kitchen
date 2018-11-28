@@ -10,7 +10,7 @@ public class Hand_Test : MonoBehaviour {
     GameInfo gameInfo;
 
     // Prefab of any GameObject
-    public GameObject hand_Obj;
+    public GameObject hand;
     public GameObject head_Obj;
     public GameObject camera_Obj;
     public GameObject hit_Obj;
@@ -53,6 +53,15 @@ public class Hand_Test : MonoBehaviour {
         laser = Instantiate(gameInfo.Laser_Obj.gameObject.GetComponent<LineRenderer>());
         laser.transform.parent = transform.parent;
         laser.widthMultiplier = 0.2f;
+
+        // Create hand object
+        if (gameInfo.hand_Obj.gameObject.GetComponent<GameObject>() != null)
+        {
+            hand = Instantiate(gameInfo.hand_Obj.gameObject.GetComponent<GameObject>());
+            hand.transform.position = transform.position;
+            hand.transform.rotation = transform.rotation;
+            hand.transform.parent = transform.parent;
+        }
     }
 	
 	void Update () {
