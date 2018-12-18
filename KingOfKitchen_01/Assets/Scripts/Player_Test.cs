@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Test : MonoBehaviour {
     public GameObject senupScene;
-    public GameInfo gameInfo;
+    GameInfo gameInfo;
 
     Rigidbody rb;
 
@@ -15,25 +15,9 @@ public class Player_Test : MonoBehaviour {
         rb = transform.GetComponent<Rigidbody>();
     }
 	
-	void Update () {
-        //CheckVelocity();
-	}
-
-    void CheckVelocity()
+	void Update()
     {
-        Vector3 velocity = rb.velocity;
-        if (velocity.x >= gameInfo.velocity_Limit)
-        {
-            velocity.x = gameInfo.velocity_Limit;
-        }
-        if (velocity.y >= gameInfo.velocity_Limit)
-        {
-            velocity.y = gameInfo.velocity_Limit;
-        }
-        if (velocity.z >= gameInfo.velocity_Limit)
-        {
-            velocity.z = gameInfo.velocity_Limit;
-        }
-        rb.velocity = velocity;
-    }
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, gameInfo.velocity_Limit);
+	}
+    
 }

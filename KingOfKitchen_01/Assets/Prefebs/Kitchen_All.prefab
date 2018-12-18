@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 65658891396611458}
   m_Layer: 0
   m_Name: counter_2
-  m_TagString: Jumpable
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3406,7 +3406,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1118020557305424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -14.93, z: 5.3}
+  m_LocalPosition: {x: 0.7, y: -15.09, z: 5.3}
   m_LocalScale: {x: 45.163124, y: 9.383955, z: 52.70786}
   m_Children: []
   m_Father: {fileID: 4744123785227264}
@@ -3556,7 +3556,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1518332754422766}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2652435, y: 3.361, z: 6.558278}
+  m_LocalPosition: {x: 2.2652435, y: 3.38, z: 6.558278}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4522342292881390}

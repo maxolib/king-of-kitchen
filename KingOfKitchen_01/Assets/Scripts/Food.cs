@@ -7,6 +7,8 @@ public class Food : MonoBehaviour {
     public int score;
     public bool held;
     public bool selected;
+    public GameObject particle;
+    public GameObject hand;
     
     void Start()
     {
@@ -19,11 +21,18 @@ public class Food : MonoBehaviour {
         {
             transform.Rotate(0, 1, 0);
         }
+        if (!held && hand != null) {
+            Destroy(hand);
+        }
     }
 
     public void DestroyGameObject()
     {
         Destroy(gameObject);
+    }
+
+    public void DestroyParticle() {
+        Destroy(particle.gameObject);
     }
 
     public void DestroyGameObjectDelay(int delay)

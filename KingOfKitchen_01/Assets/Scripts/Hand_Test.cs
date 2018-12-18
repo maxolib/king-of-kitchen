@@ -29,7 +29,11 @@ public class Hand_Test : MonoBehaviour {
     public Food food;
     public Vector3 click_Position;
     public Vector3 click_Direction;
+    public Vector3 hold_point;
+    public Vector3 hand_position;
+    public Vector3 hand_rotation;
     public Transform hold_T;
+    public float scal;
 
     // Local value
 
@@ -40,11 +44,13 @@ public class Hand_Test : MonoBehaviour {
         hold = false;
         movable = false;
         grab_Hold = false;
+        scal = 0f;
         hit_Obj = (GameObject)Instantiate(gameInfo.hit_Obj);
         click_Direction = transform.forward;
 
         // Rigibody Simulation and VR-Camera Setup
         rb_Camera = head_Obj.transform.GetComponent<Rigidbody>();
+        rb_Camera.maxAngularVelocity = gameInfo.velocity_Limit;
         simulator = new GameObject().AddComponent<Rigidbody>();
         simulator.name = "simulator";
         simulator.transform.parent = transform.parent;
@@ -55,13 +61,10 @@ public class Hand_Test : MonoBehaviour {
         laser.widthMultiplier = 0.2f;
 
         // Create hand object
-        if (gameInfo.hand_Obj.gameObject.GetComponent<GameObject>() != null)
-        {
-            hand = Instantiate(gameInfo.hand_Obj.gameObject.GetComponent<GameObject>());
-            hand.transform.position = transform.position;
-            hand.transform.rotation = transform.rotation;
-            hand.transform.parent = transform.parent;
-        }
+        //hand = Instantiate(gameInfo.hand_Obj);
+        //hand.transform.position = transform.position;
+        //hand.transform.rotation = transform.rotation;
+        //hand.transform.parent = transform.parent;
     }
 	
 	void Update () {
@@ -81,11 +84,29 @@ public class Hand_Test : MonoBehaviour {
     void Holding()
     {
         simulator.velocity = (transform.position - simulator.transform.position)  * 100f;
+        
+        if (gameInfo.modeID == 0) {
+            Vector3 p = (transform.position - hand_position) * 3.5f;
+            Vector3 r = GetRotation(transform) - hand_rotation;
+            hold_T.position += p;
+            hold_T.localRotation = transform.rotation;
+        }
+        else {
+            float distance_real = gameInfo.FindDistanceIgnoreY(transform.position, head_Obj.transform.position);
+            Vector3 p = (transform.position - hand_position) * (3.5f + scal*distance_real);
+            Vector3 r = GetRotation(transform) - hand_rotation;
+            hold_T.position += p;
+            hold_T.localRotation = transform.rotation;
+        }
+        hand_position = transform.position;
+        hand_rotation = GetRotation(transform);
+
         // Homer technique
+        /*
         if (gameInfo.modeID == 1)
         {
             float treshold = gameInfo.hand_Limit / 2;
-            float distance = gameInfo.FindDistanceIgnoreY(transform.position, camera_Obj.transform.position);
+            float distance = gameInfo.FindDistance(transform.position, camera_Obj.transform.position);
             if (distance >= treshold)
             {
                 hold_T.position += transform.forward * 0.1f;
@@ -94,6 +115,7 @@ public class Hand_Test : MonoBehaviour {
                 hold_T.position -= transform.forward * 0.1f;
             }
         }
+        */
 
 
         if (gameInfo.GetGrabUp(handType))
@@ -107,7 +129,7 @@ public class Hand_Test : MonoBehaviour {
     {
         hold = false;
         RaycastHit hit;
-        Vector3[] temp = {transform.position, Vector3.zero};
+        Vector3[] temp = {GetMaxDistance(), GetRotation(transform)};
         // Create Ray-casting
         if (Physics.Raycast(transform.position, transform.forward, out hit, gameInfo.maxRange))
         {
@@ -120,10 +142,11 @@ public class Hand_Test : MonoBehaviour {
                 {
                     if (gameInfo.GetGrabDown(handType))
                     {
+                        gameInfo.select_Sound.Play();
                         hold_T = hit.transform.GetComponent<Transform>();
                         hold_Distance = hit.distance;
+                        hold_point = hit.point;
                         SetObjectHold();
-                        gameInfo.UpdateHold(hold, handType);
                     }
                 }
                 else if (hit.transform.tag == "Movable" && hit.distance <= gameInfo.movable_Limit)
@@ -181,8 +204,8 @@ public class Hand_Test : MonoBehaviour {
                 }
                 else
                 {
-                    temp[0] = transform.position;
-                    temp[1] = Vector3.zero;
+                    temp[0] = GetMaxDistance();
+                    temp[1] = GetRotation(transform);
                 }
             }
         }
@@ -196,17 +219,38 @@ public class Hand_Test : MonoBehaviour {
         food.held = true;
         food.selected = true;
         hold = true;
-        hold_T.parent = transform;
-        hold_T.localRotation = Quaternion.identity;
+
+        // Set hand object to Food
+        food.hand = Instantiate(hand, hold_point, transform.rotation);
+        food.hand.transform.parent = food.transform;
+
+        // Set hand not active
+        hand.gameObject.SetActive(false);
+        hit_Obj.gameObject.SetActive(false);
+
+        hand_position = transform.position;
+        hand_rotation = GetRotation(transform);
+
+        float distance_object = gameInfo.FindDistanceIgnoreY(hold_T.position, head_Obj.transform.position);
+        float distance_real = gameInfo.FindDistanceIgnoreY(transform.position, head_Obj.transform.position);
+        scal = distance_object / distance_real;
+        //hold_T.parent = transform;
+        //hold_T.localRotation = Quaternion.identity;
         hold_T.GetComponent<Rigidbody>().useGravity = false;
         hold_T.GetComponent<Rigidbody>().isKinematic = true;
-        
-        
-        
+
+        //Set particle
+        food.particle = Instantiate(gameInfo.particle_food);
+        food.particle.transform.position = food.transform.position;
+        food.particle.transform.parent = food.transform;
+
+
+        gameInfo.UpdateHold(hold, handType);
     }
 
     void ResetObjectHold()
     {
+        food.DestroyParticle();
         food.held = false;
         hold_T.GetComponent<Rigidbody>().isKinematic = false;
         hold_T.GetComponent<Rigidbody>().useGravity = true;
@@ -216,29 +260,50 @@ public class Hand_Test : MonoBehaviour {
         hold_T = null;
         hold = false;
 
+        hand.gameObject.SetActive(true);
+        hit_Obj.gameObject.SetActive(true);
+
     }
 
     void UpdateHitObject(Vector3 position, Vector3 normal)
     {
-        laser.SetPosition(0, transform.position);
+        if (position == new Vector3(-1000, -1000, -1000)) {
+            laser.SetPosition(0, position);
+        } else {
+            laser.SetPosition(0, transform.position);
+        }
         laser.SetPosition(1, position);
         hit_Obj.transform.position = position;
         hit_Obj.transform.localRotation = Quaternion.LookRotation(normal);
     }
 
+    void UpdateHandObject(Vector3 position, Vector3 normal) {
+        hand.transform.position = position;
+        hand.transform.localRotation = Quaternion.LookRotation(normal);
+    }
+
     Vector3 GetVectorAddForce(float power)
     {
         Vector3 result = new Vector3(transform.forward.x * power, 0, transform.forward.z * power);
-        float power_Limit = 100f;
-        if (result.x >= power_Limit)
+        if (result.x >= gameInfo.force_Limit)
         {
-            result.x = power_Limit;
+            result.x = gameInfo.force_Limit;
         }
-        if (result.z >= power_Limit)
+        if (result.z >= gameInfo.force_Limit)
         {
-            result.z = power_Limit;
+            result.z = gameInfo.force_Limit;
         }
         return result;
     }
+
+    Vector3 GetMaxDistance() {
+        return transform.forward * 100000f;
+    }
+
+    Vector3 GetRotation(Transform t) {
+        return new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+    }
+
+    
 
 }

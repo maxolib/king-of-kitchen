@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class GameInfo : MonoBehaviour {
     //-------------------------------------------------------------------
@@ -21,6 +22,11 @@ public class GameInfo : MonoBehaviour {
     public Object hit_Obj;          // Prefab resources
     public GameObject hand_Obj;
     public GameObject Laser_Obj;
+    public GameObject particle_food;
+    public AudioSource main_Sound;
+    public AudioSource eat_Good;
+    public AudioSource eat_Bad;
+    public AudioSource select_Sound;
 
     Color green_Color;              // Material
     Color red_Color;
@@ -35,6 +41,7 @@ public class GameInfo : MonoBehaviour {
     public float jumpable_Limit;
     public float collect_Limit;
     public float velocity_Limit;
+    public float force_Limit;
     public bool holdL;
     public bool holdR;
     public bool jump;
@@ -57,30 +64,48 @@ public class GameInfo : MonoBehaviour {
         time = time_Limit;
         maxRange = 100f;
         hand_Limit = 0.7f;
-        movable_Limit = 20f;
-        collect_Limit = 10f;
+        movable_Limit = 1000000f;
+        collect_Limit = 1000000f;
         jumpable_Limit = 20f;
-        velocity_Limit = 100f;
+        velocity_Limit = 20f;
+        force_Limit = 100f;
         holdL = false;
         holdR = false;
         jump = false;
         status = true;
         UpdateMode();
+        //add main sound here
+        main_Sound.Play();
+
+        DontDestroyOnLoad(transform.gameObject);
     }
 
     void Update()
     {
         UpdateTimer();
         // Switch Technique
-        if (Input.GetKeyDown("m"))
+        if (Input.GetKeyDown("m") || GetGrabGripDown(0))
         {
             UpdateMode();
+        }
+
+        if (status == false)
+        {
+            SceneManager.LoadScene("End_Scene");
         }
 
     } 
 
     public void AddScore(int score)
     {
+        if (score >= 0)
+        {
+            eat_Good.Play();
+        }
+        else
+        {
+            eat_Bad.Play();
+        }
         currentScore += score;
         UpdateScore();
     }
@@ -179,6 +204,26 @@ public class GameInfo : MonoBehaviour {
         else if (handType == 2)
         {
             return SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool GetGrabGripDown(int handType)
+    {
+        if (handType == 0)
+        {
+            return SteamVR_Input._default.inActions.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any);
+        }
+        else if (handType == 1)
+        {
+            return SteamVR_Input._default.inActions.GrabGrip.GetStateDown(SteamVR_Input_Sources.LeftHand);
+        }
+        else if (handType == 2)
+        {
+            return SteamVR_Input._default.inActions.GrabGrip.GetStateDown(SteamVR_Input_Sources.RightHand);
         }
         else
         {
