@@ -18,8 +18,7 @@ For navigation technique, we choose Grab World technique because it can make the
 
 # Implementation Details
 For the game concept, there are two modes for selection which are simple ray-casting mode and homer mode. These two modes are used for selecting foods in the scene. The player can switch to homer mode to pull the objects that are far from the player. To switch selection mode, the player has to press the grip on the side of the controller. When food is selected, the player will see the particle feedback on the object that helps the player to know whether the object is picked. In order to walk around and climb the furniture in the scene, we use Grab World technique that the player has to point to the place the player wants to move to. Then, press the trigger on the controller to move. The functions implemented for Grab World technique. In the next paragraph, it is the explanation for implementing the interaction techniques by using Unity and SteamVR
-
-![Screenshot](/resources/images/Kitchen_1.PNG =250x)
+<img src="/resources/images/Kitchen_1.PNG" height="250">
 
 Unity is a game maker that has a free version for personal use. For create VR game, Unity also has free package name “SteamVR” for connecting Unity and VR devices such as HTC Vive to work together. SteamVR package has a lot of that very useful for create VR game. There are scripts basic models, materials, resources, scripts, and prefabs. Although SteamVR has a sample scene to learn about basic technique such as teleport or throw an object, It not enough to implement a unique VR game. We have to learn how SteamVR works in Unity program and then create own scripts follow game concept as well. First, we try to get input from VR controller by import SteamVR library call “Valve.VR” and then get input value from “SteamVR_Input” class. After we get input from the controllers, we try to create ray-casting for getting any object that ray hit by using “RaycastHit” from Unity. This function can get common value from an object that was hit are distance, position point, normal point, and Game object. From this stage, we plan to create scripts for controlling objects in this project. Scripts can separate into seven scripts are follow:
 - **GameInfo** - link all scripts together and contain a common method
@@ -35,24 +34,24 @@ Next, it is the process of creating the scenes and objects are follow:
 - Scenes:
     - **Start_Scene** - menu scene before the game start
 
-    ![Screenshot](/resources/images/startScene_1.PNG =250x)
+    <img src="/resources/images/startScene_1.PNG" height="250">
     - **Main_Scene** - the main scene to play the game
 
-    ![Screenshot](/resources/images/Select_RayCasting_1.PNG =250x)
+    <img src="/resources/images/Select_RayCasting_1.PNG" height="250">
     - **End_Scene** - scene for restart game and show score
 
-    ![Screenshot](/resources/images/endScene_1.PNG =250x)
+    <img src="/resources/images/endScene_1.PNG" height="250">
 - Objects:
     - **Food objects** - a score object
 
-    ![Screenshot](/resources/images/Food_colliderObject_1.PNG =250x)
+    <img src="/resources/images/Food_colliderObject_1.PNG" height="250">
     - Kitchen room object
         - **Movable** - an object that player can move'
 
-        ![Screenshot](/resources/images/Movable_1.PNG =250x)
+        <img src="/resources/images/Movable_1.PNG" height="250">
         - **Jumpable** - an object that player can jump
 
-        ![Screenshot](/resources/images/Jumpable_1.PNG =250x)
+        <img src="/resources/images/Jumpable_1.PNG" height="250">
 
 #Discussion
 - **lessons learned**
