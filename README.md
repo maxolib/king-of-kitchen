@@ -1,8 +1,9 @@
 # King of Kitchen
 KOK is the VR-Game that was impromented by students in the falculty of ICT, Mahidol. It can play with HTC Vive which is the most popular device of VR controller. The story of this game is about a mouse finding and stealing foods in the kitchen. In this game, the player will be immersed to be a mouse in the game. The player has to steal foods in the kitchen as much as possible in the limited time. There is the challenge for the player to avoid collecting the spoiled foods that would deduct the score.
 
-See the demo video here:
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=OVrd-KMD-dM" target="_blank"><img src="http://img.youtube.com/vi/OVrd-KMD-dM/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+See the demo video here :mouse: :hamburger: :
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=OVrd-KMD-dM" target="_blank"><img src="http://img.youtube.com/vi/OVrd-KMD-dM/0.jpg" alt="IMAGE ALT TEXT HERE" width="800" height="420" border="10" /></a>
 
 # Propose of the project
 This game is project from ITCS496_Special Topics in Multimedia Systems. The propose to imprement VR-Game and for learning in the VR techniquies which are Ray-Casting and Homer as selection techniques.
@@ -18,7 +19,7 @@ For navigation technique, we choose Grab World technique because it can make the
 # Implementation Details
 For the game concept, there are two modes for selection which are simple ray-casting mode and homer mode. These two modes are used for selecting foods in the scene. The player can switch to homer mode to pull the objects that are far from the player. To switch selection mode, the player has to press the grip on the side of the controller. When food is selected, the player will see the particle feedback on the object that helps the player to know whether the object is picked. In order to walk around and climb the furniture in the scene, we use Grab World technique that the player has to point to the place the player wants to move to. Then, press the trigger on the controller to move. The functions implemented for Grab World technique. In the next paragraph, it is the explanation for implementing the interaction techniques by using Unity and SteamVR
 
-![alt text](resources\images\Kitchen_1.PNG "Kitchen_1")
+![Screenshot](resources\images\Kitchen_1.PNG)
 
 Unity is a game maker that has a free version for personal use. For create VR game, Unity also has free package name “SteamVR” for connecting Unity and VR devices such as HTC Vive to work together. SteamVR package has a lot of that very useful for create VR game. There are scripts basic models, materials, resources, scripts, and prefabs. Although SteamVR has a sample scene to learn about basic technique such as teleport or throw an object, It not enough to implement a unique VR game. We have to learn how SteamVR works in Unity program and then create own scripts follow game concept as well. First, we try to get input from VR controller by import SteamVR library call “Valve.VR” and then get input value from “SteamVR_Input” class. After we get input from the controllers, we try to create ray-casting for getting any object that ray hit by using “RaycastHit” from Unity. This function can get common value from an object that was hit are distance, position point, normal point, and Game object. From this stage, we plan to create scripts for controlling objects in this project. Scripts can separate into seven scripts are follow:
 - **GameInfo** - link all scripts together and contain a common method
@@ -33,19 +34,25 @@ Next, it is the process of creating the scenes and objects are follow:
 
 - Scenes:
     - **Start_Scene** - menu scene before the game start
-    ![alt text](resources\images\startScene_1.PNG "startScene_1")
+
+    ![Screenshot](resources\images\startScene_1.PNG)
     - **Main_Scene** - the main scene to play the game
-    ![alt text](resources\images\Select_RayCasting_1.PNG "Select_RayCasting_1")
+
+    ![Screenshot](resources\images\Select_RayCasting_1.PNG)
     - **End_Scene** - scene for restart game and show score
-    ![alt text](resources\images\endScene_1.PNG "endScene_1")
+
+    ![Screenshot](resources\images\endScene_1.PNG)
 - Objects:
     - **Food objects** - a score object
-    ![alt text](resources\images\Food_colliderObject_1.PNG "Food_colliderObject_1")
+
+    ![Screenshot](resources\images\Food_colliderObject_1.PNG)
     - Kitchen room object
         - **Movable** - an object that player can move'
-        ![alt text](resources\images\Movable_1.PNG "Movable_1")
+
+        ![Screenshot](resources\images\Movable_1.PNG)
         - **Jumpable** - an object that player can jump
-        ![alt text](resources\images\Jumpable_1.PNG "Jumpable_1")
+
+        ![Screenshot](resources\images\Jumpable_1.PNG)
 
 #Discussion
 - **lessons learned**
@@ -101,15 +108,11 @@ Next, it is the process of creating the scenes and objects are follow:
 - Multi-player
     - Two player modes
 
-
- 
-
-
-
-
-
-
-
-
+# Team Member
+Parintorn  Pooyoi           5888149
+Suchakree  Sawangwong       5888170
+Witchayaporn  Suriyun       5888186
+Amonnat  Tengputtipong      5888202
+Faculty of Information and Communication Technology, Mahidol University
 # Status
-Imprementing. . .
+**Completed**
