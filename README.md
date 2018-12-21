@@ -60,7 +60,7 @@ Next, it is the process of creating the scenes and objects are follow:
         <img src="/resources/images/Jumpable_1.PNG" height="250">
 
 
-#Discussion
+# Discussion
 - **lessons learned**
     - How VR work in the real world
     - Selection technique in VR
@@ -115,10 +115,12 @@ Next, it is the process of creating the scenes and objects are follow:
     - Two player modes
 
 # Team Member
-Parintorn  Pooyoi           5888149
-Suchakree  Sawangwong       5888170
-Witchayaporn  Suriyun       5888186
-Amonnat  Tengputtipong      5888202
+- Parintorn  Pooyoi           5888149
+- Suchakree  Sawangwong       5888170
+- Witchayaporn  Suriyun       5888186
+- Amonnat  Tengputtipong      5888202
+
 Faculty of Information and Communication Technology, Mahidol University
+
 # Status
 **Completed**
