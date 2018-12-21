@@ -35,13 +35,13 @@ Next, it is the process of creating the scenes and objects are follow:
 - Scenes:
     - **Start_Scene** - menu scene before the game start
 
-    ![Screenshot](\resources\images\startScene_1.PNG)
+    ![Screenshot](/resources/images/startScene_1.PNG)
     - **Main_Scene** - the main scene to play the game
 
-    ![Screenshot](\resources\images\Select_RayCasting_1.PNG)
+    ![Screenshot](/../resources/images/Select_RayCasting_1.PNG)
     - **End_Scene** - scene for restart game and show score
 
-    ![Screenshot](\resources\images\endScene_1.PNG)
+    ![Screenshot](\..\resources\images\endScene_1.PNG)
 - Objects:
     - **Food objects** - a score object
 
